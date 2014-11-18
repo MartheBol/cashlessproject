@@ -1,0 +1,14 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Mederwerkers.KLant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="KLant" Height="2262" Width="3196">
+    <Grid>
+        <TextBlock x:Name="txbWelkomTekst" FontSize="100" Margin="670,96,622.333,1491.667" TextAlignment="Center"><Run Text="Beste (naam klant) hieronder "/><LineBreak/><Run Text="kunt u onze prijslijst raadplegen"/></TextBlock>
+
+        <Border BorderBrush="Gray" BorderThickness="3" Height="124" Margin="724,489,704.333,0" VerticalAlignment="Top"/>
+        <TextBlock Name="txbProduct" Text="Product" FontSize="70" Margin="724,497,1430.333,1611.667" Height="auto" TextAlignment="Center"/>
+        <TextBlock Name="txbPrijsEenheid" Text="Prijs/eenheid" FontSize="70" Margin="1925,497,703.333,1593.667" TextAlignment="Center"/>
+        <ListBox Name="lstProducten" BorderBrush="Gray" BorderThickness="3" Margin="724,618,704.333,121.667"/>
+
+    </Grid>
+</Window>

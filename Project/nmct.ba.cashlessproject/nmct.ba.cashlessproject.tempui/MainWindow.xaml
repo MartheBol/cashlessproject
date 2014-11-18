@@ -1,0 +1,10 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="2190" Width="3140">
+    <Window.Resources>
+       
+    </Window.Resources>
+    
+  
+</Window>

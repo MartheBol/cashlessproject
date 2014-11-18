@@ -1,0 +1,11 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.ITBedrijf"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ITBedrijf" Height="2190" Width="3140">
+    <Grid>
+        <TextBlock Name="txbNaam" Text="Naam van IT-bedrijf" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="909,200,909.333,1750"  />
+        <Button Content="Vereningen" Height="Auto" Margin="2161,641,91.333,878.667" />
+        <Button Content="Kassa's" Height="Auto" Margin="80,641,2172.333,878.667" />
+        <Button Content="Loggin" Height="Auto" Margin="1118,641,1134.333,878.667" />
+    </Grid>
+</Window>

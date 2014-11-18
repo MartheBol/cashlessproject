@@ -1,0 +1,62 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Management_Vereningen.Klanten"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Klanten" Height="2262" Width="3196">
+    <Grid>
+        <!-- Region HEAD -->
+
+        <TextBlock Name="txbVereniging" Text="Naam vereniging" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="1031,81,1022.333,1908.667"  />
+        <Button Name="btnAfmelden" Content="Afm." FontSize="70" Margin="2960,120,68.333,1950.667"/>
+        <Button Name="btnPaswoordWijzigen" Content="Pasw" FontSize="70" Margin="2724,120,304.333,1950.667" RenderTransformOrigin="-0.636,0.599"/>
+
+
+        <Button Name="btnProducten" Content="Producten" Margin="80,366,2630.333,1727.667" FontSize="70"/>
+        <Button Name="btnMedewerkers" Content="Medewerkers" Margin="640,366,1987.333,1727.667" FontSize="70"/>
+        <Button Name="btnKlanten" Content="Klanten" Margin="1281,366,1348.333,1727.667" FontSize="70"/>
+        <Button Name="btnKassas" Content="Kassa's" Margin="1920,366,708.333,1727.667" FontSize="70"/>
+        <Button Name="btnStatistiek" Content="Statistiek" Margin="2560,366,68.333,1727.667" FontSize="70"/>
+        
+
+        <!-- EndRegion-->
+        
+        <!-- Body-->
+
+        <Border BorderBrush="Gray" BorderThickness="3" Height="124" Margin="80,554,68.333,0" VerticalAlignment="Top"/>
+        <TextBlock Name="txbFamilienaam" Text="Familienaam" FontSize="70" Margin="80,554,2630.333,1554.667" Height="auto" TextAlignment="Center"/>
+        <TextBlock Name="txbVoornaam" Text="Voornaam" FontSize="70" Margin="640,554,1987.333,1546.667" TextAlignment="Center"/>
+        <TextBlock Name="txbKaartnummer" Text="Kaartnummer" FontSize="70" Margin="1281,554,1348.333,1536.667" TextAlignment="Center"/>
+        <TextBlock Name="txbAdres" Text="Adres" FontSize="70" Margin="1921,554,707.333,1536.667" TextAlignment="Center"/>
+        <TextBlock Name="txbGeslacht" Text="Geslacht" FontSize="70" Margin="2560,554,68.333,1536.667" TextAlignment="Center"/>
+        <ListBox Name="lstKlanten" BorderBrush="Gray" BorderThickness="3" Margin="80,675,68.333,944.667"/>
+
+
+        <Border BorderBrush="Gray" BorderThickness="3" Height="753" Margin="80,1413,68.333,0" VerticalAlignment="Top"/>
+        <TextBlock Name="txbFamilienaamWijzigen" Text="Familienaam" FontSize="70" Margin="80,1474,2629.333,634.667" Height="auto" TextAlignment="Center"/>
+        <TextBox Name="txtFamilienaamWijzigen" FontSize="70" Margin="128,1603,2580.333,505.667" Height="auto" TextAlignment="Center"/>
+
+        <TextBlock Name="txbVoornaamWijzigen" Text="Voornaam" FontSize="70" Margin="640,1466,1986.333,634.667" TextAlignment="Center"/>
+        <TextBox Name="txtVoornaamWijzigen" FontSize="70" Margin="776,1598,1931.333,510.667" Height="auto" TextAlignment="Center"/>
+
+        <TextBlock Name="txbAdresWijzigen" Text="Adres" FontSize="70" Margin="128,1751,2499.333,374.667" TextAlignment="Left"/>
+        <TextBox Name="txtAdresWijzigenStraat" FontSize="70" Margin="128,1863,1931.333,262.667" TextAlignment="Left"/>
+        <TextBox Name="txtAdresWijzigenPostcode" FontSize="70" Margin="128,2012,1930.333,113.667" TextAlignment="Left"/>
+
+        <TextBlock Name="txbEmailAdres" Text="E-mailadres" FontSize="70" Margin="1605,1474,1022.333,616.667" TextAlignment="Left"/>
+        <TextBox Name="txtEmailAdres" FontSize="70" Margin="2021,1492,155.333,616.667" Height="auto" TextAlignment="Center"/>
+
+
+        <TextBlock Name="txbKaartnummerWijzigen" Text="Kaartnummer" FontSize="70" Margin="1605,1646,1121.333,479.667" TextAlignment="Left"/>
+        <TextBox Name="txtKaartnummer" FontSize="70" Margin="2107,1646,154.333,462.667" Height="auto" TextAlignment="Center"/>
+
+        <TextBlock Name="txbSaldoWijzigen" Text="Saldo" FontSize="70" Margin="1605,1827,1121.333,298.667" TextAlignment="Left"/>
+        <ComboBox Name="cboSaldo" Margin="2107,1827,155.333,298.667"/>
+
+        <Button Name="btnWijzigen" Margin="2108,1965,154.333,113.667" Content="Wijzigen"/>
+
+
+
+
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,35 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Management_Vereningen.kassa_s"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="Kassa_s" Height="2262" Width="3196">
+    <Grid>
+        <!-- Region HEAD -->
+
+        <TextBlock Name="txbVereniging" Text="Naam vereniging" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="1031,81,1022.333,1908.667"  />
+        <Button Name="btnAfmelden" Content="Afm." FontSize="70" Margin="2960,120,68.333,1950.667"/>
+        <Button Name="btnPaswoordWijzigen" Content="Pasw" FontSize="70" Margin="2724,120,304.333,1950.667" RenderTransformOrigin="-0.636,0.599"/>
+
+
+        <Button Name="btnProducten" Content="Producten" Margin="80,366,2630.333,1727.667" FontSize="70"/>
+        <Button Name="btnMedewerkers" Content="Medewerkers" Margin="640,366,1987.333,1727.667" FontSize="70"/>
+        <Button Name="btnKlanten" Content="Klanten" Margin="1281,366,1348.333,1727.667" FontSize="70"/>
+        <Button Name="btnKassas" Content="Kassa's" Margin="1920,366,708.333,1727.667" FontSize="70"/>
+        <Button Name="btnStatistiek" Content="Statistiek" Margin="2560,366,68.333,1727.667" FontSize="70"/>
+        
+        <!-- Body -->
+        
+        <!-- Linkerkant -->
+        <TextBlock Name="txbKassa" Text="Kassa's" FontSize="70" Margin="80,554,1348.333,1554.667" Height="auto" TextAlignment="Center"/>
+        <ListBox Name="lstKassas" BorderBrush="Gray" BorderThickness="3" Margin="80,675,1348.333,64.667"/>
+        <Border BorderBrush="Gray" BorderThickness="3" Height="124" Margin="80,554,1348.333,0" VerticalAlignment="Top"/>
+        
+        <!-- Rechterkant -->
+
+        <TextBlock Name="txbMedewerkers" Text="Mederwerkers van (naam kassa)" FontSize="70" Margin="1920,554,68.333,1554.667" Height="auto" TextAlignment="Center"/>
+        <ListBox Name="lstMederwerkers" BorderBrush="Gray" BorderThickness="3" Margin="1920,675,68.333,538.667"/>
+        <Border BorderBrush="Gray" BorderThickness="3" Height="124" Margin="1920,554,68.333,0" VerticalAlignment="Top"/>
+
+
+
+    </Grid>
+</Window>

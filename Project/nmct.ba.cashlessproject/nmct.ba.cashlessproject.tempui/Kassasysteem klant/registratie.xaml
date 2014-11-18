@@ -1,0 +1,28 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Kassasysteem_klant.registratie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="registratie" Height="2262" Width="3196">
+    <Grid>
+
+        <Button Name="btnKaart" Content="Kaart Scannen" Margin="95,328,2010.333,1482.667" FontSize="100"/>
+        <TextBlock Name="txbGeregistreerd" Text="klant geregistreerd ?" FontSize="100" Margin="1466,328,744.333,1668.667"/>
+        <TextBlock Name="txbHerkend"  FontSize="100" Margin="1466,514,743.333,1482.667" />
+        <TextBlock Name="txbKlantNiettHerkend"  FontSize="100" Margin="2560,514,53.333,1482.667" />
+
+
+        <Button Name="btnBiljet"  Content="Biljet scannen" Margin="95,1294,2010.333,516.667" FontSize="100"/>
+        <TextBlock Name="txbBiljet" Text="Biljet van " FontSize="100" Margin="1466,1294,743.333,702.667"/>
+        <TextBlock Name="txbBiljetHerkend"  FontSize="100" Margin="1466,1480,744.333,516.667" />
+        <TextBlock Name="txbBiljetNietHerkend"  FontSize="100" Margin="2560,1480,54.333,516.667" />
+
+
+        <Button Name="btnFoutmelding"  Content="Foutmelding opslaan"  Margin="1466,1858,54.333,79.667" FontSize="100"/>
+
+
+
+
+
+
+
+    </Grid>
+</Window>

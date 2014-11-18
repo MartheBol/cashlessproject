@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.tempui", "nmct.ba.cashlessproject.tempui\nmct.ba.cashlessproject.tempui.csproj", "{BF2A50AF-EEE5-4ED2-BE5D-D0362A0CDC1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{060C66EF-0597-40BE-8B67-BAD5C126A05E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vereniging management", "Vereniging management\Vereniging management.csproj", "{D5C05DF1-750A-4330-86AD-3D98CE7DC6AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vereniging medewerker en  klant", "Vereniging medewerker en  klant\Vereniging medewerker en  klant.csproj", "{C5A5F5CA-77E0-49B0-AA61-D2332C4B4566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kassasysteem medewerkers en klant", "Kassasysteem medewerkers en klant\Kassasysteem medewerkers en klant.csproj", "{226F4EB0-72C0-4905-BD0A-4FEAB45DA37C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.model", "nmct.ba.cashlessproject.model\nmct.ba.cashlessproject.model.csproj", "{45802D1F-B1F3-4C76-8622-7F0814E9EA39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nmct.ba.cashlessproject.api", "nmct.ba.cashlessproject.api\nmct.ba.cashlessproject.api.csproj", "{617CFF31-FD98-43BA-A28D-80E644AA7AF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF2A50AF-EEE5-4ED2-BE5D-D0362A0CDC1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2A50AF-EEE5-4ED2-BE5D-D0362A0CDC1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2A50AF-EEE5-4ED2-BE5D-D0362A0CDC1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2A50AF-EEE5-4ED2-BE5D-D0362A0CDC1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{060C66EF-0597-40BE-8B67-BAD5C126A05E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{060C66EF-0597-40BE-8B67-BAD5C126A05E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{060C66EF-0597-40BE-8B67-BAD5C126A05E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{060C66EF-0597-40BE-8B67-BAD5C126A05E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5C05DF1-750A-4330-86AD-3D98CE7DC6AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5C05DF1-750A-4330-86AD-3D98CE7DC6AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5C05DF1-750A-4330-86AD-3D98CE7DC6AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5C05DF1-750A-4330-86AD-3D98CE7DC6AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5A5F5CA-77E0-49B0-AA61-D2332C4B4566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5A5F5CA-77E0-49B0-AA61-D2332C4B4566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5A5F5CA-77E0-49B0-AA61-D2332C4B4566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5A5F5CA-77E0-49B0-AA61-D2332C4B4566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{226F4EB0-72C0-4905-BD0A-4FEAB45DA37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{226F4EB0-72C0-4905-BD0A-4FEAB45DA37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{226F4EB0-72C0-4905-BD0A-4FEAB45DA37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{226F4EB0-72C0-4905-BD0A-4FEAB45DA37C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45802D1F-B1F3-4C76-8622-7F0814E9EA39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45802D1F-B1F3-4C76-8622-7F0814E9EA39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45802D1F-B1F3-4C76-8622-7F0814E9EA39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45802D1F-B1F3-4C76-8622-7F0814E9EA39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{617CFF31-FD98-43BA-A28D-80E644AA7AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{617CFF31-FD98-43BA-A28D-80E644AA7AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{617CFF31-FD98-43BA-A28D-80E644AA7AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{617CFF31-FD98-43BA-A28D-80E644AA7AF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

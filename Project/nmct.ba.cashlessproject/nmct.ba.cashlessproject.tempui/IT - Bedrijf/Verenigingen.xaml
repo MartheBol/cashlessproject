@@ -1,0 +1,55 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Verenigingen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verenigingen"  Height="2190" Width="3140">
+    <Grid>
+        <TextBlock Name="txbTitel" Text="Vereningen" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="1187,104,1186.333,1845.667"  />
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="82,488,1774.333,1513.667">
+            <TextBlock Name="txbVereningen" Text="Vereningen" Height="auto" FontSize="100"  TextAlignment="Center"/>
+        </Border>
+
+        <ListBox Name="lstVereningen" Margin="82,638,1774.333,34.667" RenderTransformOrigin="0.5,0.5" BorderBrush="gray" BorderThickness="5"/>
+
+        <Border BorderThickness="5" Margin="1597,488,85.333,957.667" BorderBrush="gray">
+            <StackPanel Margin="-5.333,-5.333,5.667,5" >
+                
+                
+                <Border  Margin="0,0,-10.333,0" BorderBrush="gray" BorderThickness="5" Height="151">
+                    <TextBlock Name="txbRegistreer" Text="Registreer een nieuwe vereniging" FontSize="75" TextAlignment="center" Margin="-0.333,-0.333,-0.333,-5" />
+                </Border>
+                <TextBox Name="txtLogin" Text="Login" Foreground="LightGray" FontSize="75" Margin="81,80,72.667,0" BorderThickness="3" BorderBrush="LightGray"/>
+                <TextBox Name="txtPaswoord" Text="Paswoord" Foreground="LightGray" FontSize="75" Margin="81,78,72.667,0" BorderThickness="3" BorderBrush="LightGray"/>
+                <Button Name="btnOpslaan" Content="Opslaan" Margin="1123,50,72.667,0" Height="104"/>
+
+
+
+            </StackPanel>
+        </Border>
+        
+        
+        <Border BorderThickness="5" Margin="1597,1284,85.333,34.667" BorderBrush="gray">
+            <StackPanel Margin="-5.333,-5.333,5.667,5" >
+
+
+                <Border  Margin="0,0,-10.333,0" BorderBrush="gray" BorderThickness="5" Height="151">
+                    <TextBlock x:Name="txbRegistreer1" Text="Registreer een nieuwe vereniging" FontSize="75" TextAlignment="center" Margin="-0.333,-0.333,-0.333,-5" />
+                </Border>
+                <TextBlock Name="txbNaam" Text="Naam" FontSize="50" Margin="81,80,72.667,0"/>
+                <TextBox Name="txtNaam"  Foreground="LightGray" FontSize="50" Margin="81,2,72.667,0" BorderThickness="3" BorderBrush="LightGray"/>
+                
+                <TextBlock Name="txbEmail" Text="E-mailadres" FontSize="50" Margin="81,10,72.667,0"/>
+                <TextBox Name="txtEmail" Foreground="LightGray" FontSize="50" Margin="81,2,72.667,0" BorderThickness="3" BorderBrush="LightGray"/>
+                
+                <TextBlock Name="txbAdres" Text="Adres" FontSize="50" Margin="81,10,72.667,0"/>
+                <TextBox Name="txtAdres" Foreground="LightGray" FontSize="50" Margin="81,2,72.667,0" BorderThickness="3" BorderBrush="LightGray"/>
+                
+                <Button Name="btnOpslaan1" Content="Opslaan" Margin="1123,30,72.667,0" Height="104"/>
+
+
+
+            </StackPanel>
+        </Border>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,12 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Mederwerkers.Scankaart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Scankaart" Height="2262" Width="3196">
+    <Grid>
+        <TextBlock Name="txbSCannen" Text="Scan uw kaart" Height="auto" Width="auto" FontSize="400" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="283,501,283.333,356.667" VerticalAlignment="Center" HorizontalAlignment="Center" Height="1000" Width="2500"/>
+        
+        
+        
+    </Grid>
+</Window>

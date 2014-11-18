@@ -1,0 +1,44 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.tempui.Kassa_s"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kassa_s" Height="2190" Width="3140">
+    <Grid>
+        
+        <TextBlock Name="txbTitel" Text="Kassa's" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="1187,104,1186.333,1845.667"  />
+        
+        <!-- Tekstblock boven listbox Vereningen-->
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="82,479,2384.333,1522.667">
+            <TextBlock Name="txbVerenigingen" Text="Verenigingen" Height="auto" FontSize="100"  TextAlignment="Center"/>
+        </Border>
+        
+        <ListBox Name="lstVereningen" Margin="82,633,2384.333,39.667" RenderTransformOrigin="0.5,0.5" BorderBrush="gray" BorderThickness="5"/>
+
+        <!-- Tekstblock boven listbox Kassa's-->
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="1600,479,866.333,1522.667">
+            <TextBlock Name="txbKassas" Text="Kassa's" Height="auto" FontSize="100"  TextAlignment="Left" Margin="5,5,-4.667,-5.333"/>
+        </Border>
+
+        <ListBox Name="lstKassas" Margin="1600,633,866.333,39.667" RenderTransformOrigin="0.5,0.5" BorderBrush="gray" BorderThickness="5"/>
+
+        <!-- Kassa's van -->
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="801,646,1665.333,1355.667">
+            <TextBlock x:Name="txbKassasVan" Height="auto" FontSize="55" TextAlignment="Center" Margin="5,5,-4.667,-5.333"><Run Text="Kassa's van "/><LineBreak/><Run Text="(naam vereniging)"/></TextBlock>
+        </Border>
+        
+        <ListBox Name="lstKassasVan" Margin="801,799,1665.333,880.667" RenderTransformOrigin="0.5,0.5" BorderBrush="gray" BorderThickness="5"/>
+
+
+        <!-- Kassa's toekennen -->
+        <Border BorderBrush="Gray" BorderThickness="5" Margin="2325,646,141.333,1355.667">
+            <TextBlock x:Name="txbKassaToekennen" Height="auto" FontSize="55" TextAlignment="Center" Margin="5,5,-4.667,-5.333"><Run Text="(naam kassa) "/><LineBreak/><Run Text="toekennen"/><Run Text=" aan "/></TextBlock>
+        </Border>
+
+        <ListBox Name="lstKassaToekennen" Margin="2325,799,141.333,880.667" RenderTransformOrigin="0.5,0.5" BorderBrush="gray" BorderThickness="5"/>
+        
+        <Button Name="btnToevoegen" Content="+" FontSize="50" Height="80" Width="80" Margin="2158,524,895.333,1556.667" RenderTransformOrigin="0.5,0.214" ></Button>
+
+
+
+
+    </Grid>
+</Window>
