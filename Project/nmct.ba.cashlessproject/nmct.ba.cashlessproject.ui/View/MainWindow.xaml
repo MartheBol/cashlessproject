@@ -1,0 +1,63 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.ui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:nmct.ba.cashlessproject.ui.View"
+        xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.ViewModel"
+        Title="MainWindow" Height="600" Width="600">
+
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type vm:BeginschermVM}">
+            <v:Beginscherm/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:BestellingVM}">
+            <v:Bestelling/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:KlantenVM}">
+            <v:Klant/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:MedewerkersKeuzeVM}">
+            <v:MedewerkersKeuze/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:ToevoegenAanBestellingVM}">
+            <v:ToevoegenAanBestelling/>
+        </DataTemplate>
+
+
+
+
+
+    </Window.Resources>
+
+    <Grid>
+        
+     
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+
+        <ItemsControl ItemsSource="{Binding Pages}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button  Style="{StaticResource Navigatie}" Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+            
+           
+        </ItemsControl>
+        
+
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}" Width="525" Height="350"/>
+        
+    </Grid>
+</Window>

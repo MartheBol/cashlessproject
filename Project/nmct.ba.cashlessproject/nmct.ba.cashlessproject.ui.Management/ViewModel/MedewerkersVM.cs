@@ -35,7 +35,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees");
+                HttpResponseMessage response = await client.GetAsync(ConfigurationSettings.AppSettings.Get("apiUrl")+"api/employees");
                 if(response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();

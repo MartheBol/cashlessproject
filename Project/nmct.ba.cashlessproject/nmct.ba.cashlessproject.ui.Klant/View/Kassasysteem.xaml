@@ -30,7 +30,7 @@
 
 
         <Button Name="btnKaart" Content="Kaart Scannen" FontSize="20"  Grid.Column="1" Grid.Row="1" Grid.RowSpan="2"/>
-        <TextBlock Name="txbGeregistreerd" Text="klant geregistreerd ?" Style="{StaticResource Textblocken}"  Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,-0.001,0"/>
+        <TextBlock Name="txbGeregistreerd" Text="klant geregistreerd ?" FontSize="16"  Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,0,-0.001,0"/>
         <TextBlock Name="txbHerkend"  FontSize="16"  Grid.Column="3" Grid.Row="2" Margin="0,2.936,1.393,0" />
         <TextBlock Name="txbKlantNiettHerkend"  FontSize="16" Grid.Column="5" Grid.Row="2" Margin="0.001,0,8.987,0" Grid.ColumnSpan="2"/>
 
@@ -40,7 +40,7 @@
         <TextBlock Name="txbBiljetHerkend"  FontSize="16"  Grid.Column="5" Grid.Row="5" Margin="1.012,0,1.012,2.997" />
         <TextBlock Name="txbBiljetNietHerkend"  FontSize="16" Grid.Column="3" Grid.Row="5" />
 
-        <Button Name="btnFoutmelding"  Content="Foutmelding opslaan" Style="{StaticResource Buttons}" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="7" Margin="0,0,1.012,0.01"/>
+        <Button Name="btnFoutmelding"  Content="Foutmelding opslaan" FontSize="20" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="7" Margin="0,0,1.012,0.01"/>
 
     </Grid>
 </UserControl>

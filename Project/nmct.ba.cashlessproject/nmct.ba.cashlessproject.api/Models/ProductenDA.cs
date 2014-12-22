@@ -7,7 +7,6 @@ using System.Data.Common;
 using System.Linq;
 using System.Web;
 using nmct.ba.cashlessproject.api.Models;
-using System.Windows;
 
 
 namespace nmct.ba.cashlessproject.api.Models
@@ -46,8 +45,7 @@ namespace nmct.ba.cashlessproject.api.Models
             };
         }
 
-        
-        
+       
 
     }
 }

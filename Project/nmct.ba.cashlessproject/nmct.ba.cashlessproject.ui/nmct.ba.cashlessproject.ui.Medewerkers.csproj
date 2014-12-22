@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C93B944B-54A7-4257-B140-DD2F8F8B59EE}</ProjectGuid>
+    <ProjectGuid>{932DCD68-CADE-4BB2-9C99-B203B03517B3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>nmct.ba.cashlessproject.ui.Management</RootNamespace>
-    <AssemblyName>nmct.ba.cashlessproject.ui.Management</AssemblyName>
+    <RootNamespace>nmct.ba.cashlessproject.ui</RootNamespace>
+    <AssemblyName>nmct.ba.cashlessproject.ui</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -82,40 +82,47 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModel\ApplicationVM.cs" />
-    <Compile Include="ViewModel\KassaVM.cs" />
+    <Compile Include="ViewModel\BeginschermVM.cs" />
+    <Compile Include="ViewModel\BestellingVM.cs" />
     <Compile Include="ViewModel\KlantenVM.cs" />
-    <Compile Include="ViewModel\MedewerkersVM.cs" />
-    <Compile Include="ViewModel\observableCollection.cs" />
-    <Compile Include="ViewModel\ProductenMV.cs" />
-    <Compile Include="ViewModel\StatistiekKassasVM.cs" />
-    <Compile Include="ViewModel\StatistiekProductenVM.cs" />
-    <Compile Include="ViewModel\StatistiekTotaleVerkoopVM.cs" />
-    <Compile Include="View\Kassas.xaml.cs">
-      <DependentUpon>Kassas.xaml</DependentUpon>
+    <Compile Include="ViewModel\ManagementVM.cs" />
+    <Compile Include="ViewModel\MedewerkersKeuzeVM.cs" />
+    <Compile Include="ViewModel\PageOneVM.cs" />
+    <Compile Include="ViewModel\ToevoegenAanBestellingVM.cs" />
+    <Compile Include="View\Beginscherm.xaml.cs">
+      <DependentUpon>Beginscherm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Klanten.xaml.cs">
-      <DependentUpon>Klanten.xaml</DependentUpon>
+    <Compile Include="View\Bestelling.xaml.cs">
+      <DependentUpon>Bestelling.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Medewerkers.xaml.cs">
-      <DependentUpon>Medewerkers.xaml</DependentUpon>
+    <Compile Include="View\Klant.xaml.cs">
+      <DependentUpon>Klant.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Producten.xaml.cs">
-      <DependentUpon>Producten.xaml</DependentUpon>
+    <Compile Include="View\ITBedrijf.xaml.cs">
+      <DependentUpon>ITBedrijf.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\StatistiekKassas.xaml.cs">
-      <DependentUpon>StatistiekKassas.xaml</DependentUpon>
+    <Compile Include="View\MedewerkersKeuze.xaml.cs">
+      <DependentUpon>MedewerkersKeuze.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\StatistiekProducten.xaml.cs">
-      <DependentUpon>StatistiekProducten.xaml</DependentUpon>
+    <Compile Include="View\Page1.xaml.cs">
+      <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\StatistiekTotaleVerkoop.xaml.cs">
-      <DependentUpon>StatistiekTotaleVerkoop.xaml</DependentUpon>
+    <Compile Include="View\ToevoegenAanBestelling.xaml.cs">
+      <DependentUpon>ToevoegenAanBestelling.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\Kassas.xaml">
+    <Page Include="View\Beginscherm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Klanten.xaml">
+    <Page Include="View\Bestelling.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Klant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ITBedrijf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,23 +140,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Medewerkers.xaml">
+    <Page Include="View\MedewerkersKeuze.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Producten.xaml">
+    <Page Include="View\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\StatistiekKassas.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\StatistiekProducten.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\StatistiekTotaleVerkoop.xaml">
+    <Page Include="View\ToevoegenAanBestelling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,9 +171,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -6,18 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace nmct.ba.cashlessproject.ui.Klant.ViewModel
+namespace nmct.ba.cashlessproject.ui.ViewModel
 {
     class ApplicationVM : ObservableObject
     {
         public ApplicationVM()
         {
-            Pages.Add(new PageOneVM());
-            Pages.Add(new KassasysteemVM());
-            Pages.Add(new OpladenVM());
-            Pages.Add(new SaldoVM());
-            Pages.Add(new RegistrerenVM());
-            ;
+            Pages.Add(new BeginschermVM());
+            Pages.Add(new KlantenVM());
+            Pages.Add(new MedewerkersKeuzeVM());
+            Pages.Add(new BestellingVM());
+            Pages.Add(new ToevoegenAanBestellingVM());
+           
+            
             // Add other pages
 
             CurrentPage = Pages[0];
