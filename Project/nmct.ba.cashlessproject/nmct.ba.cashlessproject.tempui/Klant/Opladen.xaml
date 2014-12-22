@@ -7,8 +7,8 @@
         <!-- navigatie -->
         <TextBlock Name="txbOpladen" Text="Kaart Opladen" Height="auto" FontSize="150" HorizontalAlignment="Center" Margin="1031,81,1022.333,1908.667"  />
         <Button Name="btnOpladen" Content="Betaalkaart opladen" Margin="91,485,2389.333,1431.667" ></Button>
-        <Button Name="btnSaldo" Content="Betaalkaart opladen" Margin="91,965,2389.333,951.667" ></Button>
-        <Button Name="btnRegisteren" Content="Betaalkaart opladen" Margin="91,1444,2389.333,472.667" ></Button>
+        <Button Name="btnSaldo" Content="Betaalkaart Saldo" Margin="91,965,2389.333,951.667" ></Button>
+        <Button Name="btnRegisteren" Content="Betaalkaart Registreren" Margin="91,1444,2389.333,472.667" ></Button>
         
         
         <TextBlock Name="txbKaartNummer" Text="Kaartnummer" FontSize="100" Margin="971,485,1529.333,1595.667"/>

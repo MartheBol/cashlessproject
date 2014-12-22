@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model.Klanten
 {
-    class Employee
+    public class Employee
     {
-        private string _id;
+        private int _id;
         private string _employeeName;
         private string _address;
         private string _email;
         private int _phone;
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set { _id = value; }

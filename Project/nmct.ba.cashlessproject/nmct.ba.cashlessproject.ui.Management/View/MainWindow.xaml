@@ -1,0 +1,73 @@
+﻿<Window x:Class="nmct.ba.cashlessproject.ui.Management.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:nmct.ba.cashlessproject.ui.Management.View"
+        xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.Management.ViewModel"
+        Title="MainWindow" Width="700" Height="800">
+    <Window.DataContext>
+        <vm:ApplicationVM/>
+    </Window.DataContext>
+    
+    <Window.Resources>
+  
+        <DataTemplate DataType="{x:Type vm:ProductenMV}">
+            <v:Producten/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:MedewerkersVM}">
+            <v:Medewerkers/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:KlantenVM}">
+            <v:Klanten/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:KassaVM}">
+            <v:Kassas/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:StatistiekTotaleVerkoopVM}">
+            <v:StatistiekTotaleVerkoop/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:StatistiekKassasVM}">
+            <v:StatistiekKassas/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type vm:StatistiekProductenVM}">
+            <v:StatistiekProducten/>
+        </DataTemplate>
+                   
+    </Window.Resources>
+    
+    <Grid>
+        
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+   
+        
+    
+        <ItemsControl ItemsSource="{Binding Pages}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource Navigatie}" Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+
+            <!--
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                    </StackPanel>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>-->
+
+        </ItemsControl>
+    
+        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+    </Grid>
+</Window>

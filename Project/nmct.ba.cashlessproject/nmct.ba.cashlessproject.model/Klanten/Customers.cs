@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model.Klanten
 {
-    class Customers
+    public class Customers
     {
-        private string _id;
+        private int _id;
         private string _customerName;
         private string _address;
         private BitmapImage _picture;
         private string _balance;
         
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -30,16 +30,19 @@ namespace nmct.ba.cashlessproject.model.Klanten
             get { return _address; }
             set { _address = value; }
         }
-        public BitmapImage Picture 
+       /* public BitmapImage Picture 
         {
             get{return _picture;}
             set{_picture = value;}
-        }
+        }*/
         public string Balance
         {
             get{return _balance;}
             set{_balance = value;}
         }
+
+
+        
         
     }
 }

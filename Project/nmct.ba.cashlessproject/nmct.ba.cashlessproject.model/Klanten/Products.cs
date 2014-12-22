@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model.Klanten
 {
-    class Products
+    public class Products
     {
         private string _id;
         private string _productName;
@@ -28,6 +28,11 @@ namespace nmct.ba.cashlessproject.model.Klanten
         {
             get { return _price; }
             set { _price = value; }
+        }
+
+        public string ProductNamePrice
+        {
+            get { return Id + "   |   " + ProductName + "   |   " + Price; }
         }
 
 
