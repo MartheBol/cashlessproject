@@ -52,9 +52,9 @@
         <TextBox Name="txtProductWijzgen" Text="{Binding SelectedProduct.ProductName}" FontSize="16"  Grid.Column="5" Grid.ColumnSpan="7" Margin="8.925,0,0.082,0.001" Grid.Row="4" Grid.RowSpan="3"/>
         <TextBlock Name="txbPrijsWijzigen" Text="Prijs" Style="{StaticResource Textblocken}" Grid.Column="5" Grid.Row="6" Margin="8.925,19.978,25.092,0.001" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
         <TextBox Name="txtPrijsWijzigen"   Text ="{Binding SelectedProduct.Price}" FontSize="16"  Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="7" Margin="8.925,0.99,0.082,19.031" Grid.RowSpan="2"/>
-        <Button Name="btnToevoegenProduct" Content="Toevoegen" FontSize="14"  Grid.Column="8" Grid.Row="9" Margin="0.333,25,0.333,14" Grid.RowSpan="3" Grid.ColumnSpan="4" Style="{StaticResource Buttons}"/>
-        <Button Name="btnVerwijderenProduct" Content="PRODUCT VERWIJDEREN" Style="{StaticResource Verwijderen}" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="11" Margin="0,32.965,0.985,0.011" Grid.RowSpan="2"/>
-        <Button Name="btnWijzigenProduct" Content="Wijzigen" FontSize="14"  Grid.Column="6" Grid.Row="9" Margin="26.333,25,5.667,14" Grid.RowSpan="3" Style="{StaticResource Buttons}" Grid.ColumnSpan="2"/>
+        <Button Name="btnToevoegenProduct"  Content="Toevoegen" FontSize="14"  Grid.Column="8" Grid.Row="9" Margin="0.333,25,0.333,14" Grid.RowSpan="3" Grid.ColumnSpan="4" Style="{StaticResource Buttons}"/>
+        <Button Name="btnVerwijderenProduct"  Command="{Binding DeleteProductCommand}" Content="PRODUCT VERWIJDEREN" Style="{StaticResource Verwijderen}" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="11" Margin="0,32.965,0.985,0.011" Grid.RowSpan="2"/>
+        <Button Name="btnWijzigenProduct" Command="{Binding SaveProductCommand}" Content="Wijzigen" FontSize="14"  Grid.Column="6" Grid.Row="9" Margin="26.333,25,5.667,14" Grid.RowSpan="3" Style="{StaticResource Buttons}" Grid.ColumnSpan="2"/>
         <Button Name="btnPaswoord" Content="Pasw" Grid.Column="9" Grid.Row="1" Style="{StaticResource Buttons}" Margin="0,0.333,0.333,0.333"/>
 
     </Grid>

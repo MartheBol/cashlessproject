@@ -39,7 +39,7 @@
 
 
         <TextBlock Name="txbKassas"  Text=" beschikbare kassa's" Style="{StaticResource Textblocken}" Grid.Row="3" Grid.RowSpan="3" Margin="0.032,8.705,65.596,9.999" Grid.Column="1" Grid.ColumnSpan="2" />
-        <ListBox Name="lstKassas" BorderBrush="Gray" BorderThickness="1" Grid.Row="5" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,43.667,0"/>
+        <ListBox Name="lstKassas" ItemsSource="{Binding Registers}" DisplayMemberPath="RegisterName" BorderBrush="Gray" BorderThickness="1" Grid.Row="5" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="3" Margin="0,0,43.667,0"/>
 
 
         <TextBlock Name="txbMedewerkersvan" Text="Medewerkers van" Style="{StaticResource Textblocken}" TextAlignment="Center" Grid.Row="3" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="5" Margin="0.333,-0.001,0.001,-0.001"/>

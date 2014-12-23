@@ -11,12 +11,14 @@ namespace nmct.ba.cashlessproject.api.Models
 {
     public class EmployeesDA
     {
+        private const string CONNECTIONSTRING = "ConnectionStringKlanten";
+
         public static List<Employee> GetEmployees()
         {
             List<Employee> list = new List<Employee>();
 
             string sql = "SELECT ID, EmployeeName, Address, Email, Phone, RekeningNr FROM Employee";
-            DbDataReader reader = Database.GetData("ConnectionStringKlanten", sql);
+            DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql);
 
             while(reader.Read())
             {
@@ -38,6 +40,13 @@ namespace nmct.ba.cashlessproject.api.Models
                 Phone = Int32.Parse(record["Phone"].ToString())
 
             };
+        }
+
+        public static void DeleteEmployee(int id)
+        {
+            string sql = "DELETE FROM Employee WHERE ID = @ID";
+            DbParameter par = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
+            Database.ModifyData(CONNECTIONSTRING, sql, par);
         }
 
 

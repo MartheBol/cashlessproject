@@ -8,7 +8,7 @@ using System.Web;
 
 namespace nmct.ba.cashlessproject.api.Helper
 {
-    class Database
+    public class Database
     {
         private static DbConnection GetConnection(string ConnectionString)
         {
@@ -20,7 +20,7 @@ namespace nmct.ba.cashlessproject.api.Helper
             return con;
         }
 
-        public static void ReleasecConnection(DbConnection con)
+        public static void ReleaseConnection(DbConnection con)
         {
             if (con != null)
             {
@@ -61,15 +61,34 @@ namespace nmct.ba.cashlessproject.api.Helper
                 if (reader != null)
                     reader.Close();
                 if (command != null)
-                    ReleasecConnection(command.Connection);
+                    ReleaseConnection(command.Connection);
                 throw;
+            }
+        }
+
+        public static int ModifyData(string ConnectionString, string sql, params DbParameter[] parameters)
+        {
+            DbCommand command = null;
+            try
+            {
+                command = BuildCommand(ConnectionString, sql, parameters);
+                int affected = command.ExecuteNonQuery();
+                command.Connection.Close();
+
+                return affected;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (command != null)
+                    ReleaseConnection(command.Connection);
+                return 0;
             }
         }
 
         public static int InsertData(string ConnectionString, string sql, params DbParameter[] parameters)
         {
             DbCommand command = null;
-
             try
             {
                 command = BuildCommand(ConnectionString, sql, parameters);
@@ -82,17 +101,16 @@ namespace nmct.ba.cashlessproject.api.Helper
                 command.Connection.Close();
 
                 return identity;
-
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 if (command != null)
-                    ReleasecConnection(command.Connection);
+                    ReleaseConnection(command.Connection);
                 return 0;
             }
         }
+
 
         public static DbParameter AddParameter(string ConnectionString, string name, object value)
         {
@@ -112,14 +130,14 @@ namespace nmct.ba.cashlessproject.api.Helper
                 con = GetConnection(ConnectionString);
                 return con.BeginTransaction();
             }
-
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
-                ReleasecConnection(con);
+                ReleaseConnection(con);
                 throw;
             }
         }
+
         private static DbCommand BuildCommand(DbTransaction trans, string sql, params DbParameter[] parameters)
         {
             DbCommand command = trans.Connection.CreateCommand();
@@ -133,6 +151,7 @@ namespace nmct.ba.cashlessproject.api.Helper
 
             return command;
         }
+
         public static DbDataReader GetData(DbTransaction trans, string sql, params DbParameter[] parameters)
         {
             DbCommand command = null;
@@ -189,7 +208,5 @@ namespace nmct.ba.cashlessproject.api.Helper
                 throw;
             }
         }
-
-
     }
 }

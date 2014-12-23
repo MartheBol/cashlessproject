@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using Newtonsoft.Json;
 using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
@@ -46,6 +48,28 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         }
 
 
+        public async void DeleteMedewerker()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                HttpResponseMessage response = await client.DeleteAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees/" + SelectedMedewerker.Id);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    Medewerkers.Remove(SelectedMedewerker);
+                    
+
+                }
+            }
+        }
+
+
+        public ICommand DeleteMederwerkerCommand
+        {
+            get { return new RelayCommand(DeleteMedewerker); }
+        }
+
+
         private Employee _selectedMedewerker;
         public Employee SelectedMedewerker
         {
@@ -53,5 +77,6 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { _selectedMedewerker = value; OnPropertyChanged("SelectedMedewerker"); }
         }
        
+
     }
 }

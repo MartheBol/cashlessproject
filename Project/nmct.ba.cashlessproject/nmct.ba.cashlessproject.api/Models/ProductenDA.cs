@@ -2,12 +2,9 @@
 using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Web;
-using nmct.ba.cashlessproject.api.Models;
-
 
 namespace nmct.ba.cashlessproject.api.Models
 {
@@ -21,11 +18,15 @@ namespace nmct.ba.cashlessproject.api.Models
             List<Products> list = new List<Products>();
 
             string sql = "SELECT ID, ProductName, Price FROM Products";
-            DbDataReader reader = Database.GetData("ConnectionStringKlanten", sql);
+            DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql);
 
             while (reader.Read())
             {
-                list.Add(Create(reader));
+                Products product = new Products();
+                product.Id = reader["ID"].ToString();
+                product.ProductName = reader["ProductName"].ToString();
+                product.Price = Convert.ToDouble(reader["Price"]);
+                list.Add(product);
             }
 
             reader.Close();
@@ -33,17 +34,33 @@ namespace nmct.ba.cashlessproject.api.Models
 
         }
 
-
-        private static Products Create(IDataRecord record)
+        //product toevoegen
+        public static void UpdateProduct (long id, Products prod )
         {
-            return new Products()
-            {
-                Id = record["ID"].ToString(),
-                ProductName= record["ProductName"].ToString(),
-                Price = double.Parse(record["Price"].ToString())
+            string sql = "UPDATE Products SET ProductName = @ProductName, Price = @Price WHERE ID = @ID";
 
-            };
+            DbParameter parName = Database.AddParameter(CONNECTIONSTRING, "@ProductName", prod.ProductName);
+            DbParameter parPrice = Database.AddParameter(CONNECTIONSTRING, "@ProductName", prod.Price);
+            DbParameter parId = Database.AddParameter(CONNECTIONSTRING, "@ProductName", prod.Id);
+
+            Database.ModifyData(CONNECTIONSTRING, sql, parName, parPrice, parId);
+        
         }
+
+
+        //verwijderen van een product
+        public static void DeleteProduct(int id)
+        {
+            string sql = "DELETE FROM Products WHERE ID = @ID";
+            DbParameter par = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
+            Database.ModifyData(CONNECTIONSTRING, sql, par);
+        }
+
+       
+
+
+  
+       
 
        
 

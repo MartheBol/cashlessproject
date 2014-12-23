@@ -58,7 +58,7 @@
         <TextBlock Name="txbAdresWijzigen" Text="Adres" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.Row="7" Margin="0.106,10.001,0.082,7.045" Grid.ColumnSpan="6" Grid.RowSpan="3"/>
         <TextBox Name="txtAdresWijzigen"  Text="{Binding SelectedMedewerker.Address}"  FontSize="16"  Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="8" Margin="8.667,10.001,9.986,10.332" Grid.RowSpan="3"/>
         <Button Name="btnToevoegenMedewerker" Content="Toevoegen" Grid.Column="8" Grid.Row="11" Margin="0.333,0,0.333,0.667" Grid.RowSpan="2" Grid.ColumnSpan="4" Style="{StaticResource Buttons}" Height="25" VerticalAlignment="Bottom"/>
-        <Button Name="btnVerwijderenMedewerker" Content="Medewerker verwijderen" Style="{StaticResource Verwijderen}" FontSize="16" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="14" Grid.RowSpan="2" Margin="0,0.002,0.001,9.998"/>
+        <Button Name="btnVerwijderenMedewerker" Command="{Binding DeleteMederwerkerCommand}" Content="Medewerker verwijderen" Style="{StaticResource Verwijderen}" FontSize="16" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="14" Grid.RowSpan="2" Margin="0,0.002,0.001,9.998"/>
         <Button Name="btnWijzigenMedewerker" Content="Wijzigen"  Grid.Column="6" Grid.Row="11" Margin="25,0.333,4.667,0.667" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource Buttons}"/>
         <Button Name="btnPaswoord" Content="Afm" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource Buttons}"/>
 

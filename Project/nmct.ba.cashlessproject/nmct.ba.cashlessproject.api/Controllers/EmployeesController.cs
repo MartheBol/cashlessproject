@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using nmct.ba.cashlessproject.api.Models;
 using nmct.ba.cashlessproject.model.Klanten;
 using System.Web.Http;
+using System.Net;
 
 namespace nmct.ba.cashlessproject.api.Controllers
 {
@@ -20,6 +21,12 @@ namespace nmct.ba.cashlessproject.api.Controllers
         public List<Employee> Get()
         {
             return EmployeesDA.GetEmployees();
+        }
+
+        public HttpStatusCode Delete(int id)
+        {
+            EmployeesDA.DeleteEmployee(id);
+            return HttpStatusCode.OK;
         }
 
     }
