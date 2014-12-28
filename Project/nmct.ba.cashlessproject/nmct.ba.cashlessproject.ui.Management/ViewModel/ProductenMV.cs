@@ -15,6 +15,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
     class ProductenMV : ObservableObject, IPage
     {
+        #region Properties
         public string Name
         {
             get { return "Producten"; }
@@ -32,7 +33,16 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             get { return _product; }
             set { _product = value; OnPropertyChanged("Producten"); }
         }
+        private Products _selectedProduct;
+        public Products SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set { _selectedProduct = value; OnPropertyChanged("SelectedProduct"); }
+        }
 
+        #endregion
+
+        #region Methods
         private async void GetProducten()
         {
             using (HttpClient client = new HttpClient())
@@ -61,32 +71,41 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         }
 
 
-        public async void SaveProduct()
+       private async void AddProduct()
         {
+            Products newProduct = new Products() { ProductName = "Nieuw Product" };
             using (HttpClient client = new HttpClient())
             {
-                string Product = JsonConvert.SerializeObject(SelectedProduct);
-                HttpResponseMessage response = await
-                client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id, new StringContent(Product, Encoding.UTF8, "application/json"));
+                string emp = JsonConvert.SerializeObject(newProduct);
+                HttpResponseMessage response = await client.PostAsync("http://localhost:1419/api/products", new StringContent(emp, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    GetProducten();
+                }
             }
         }
 
+       public async void SaveProduct()
+       {
+           using (HttpClient client = new HttpClient())
+           {
+               string Product = JsonConvert.SerializeObject(SelectedProduct);
+               HttpResponseMessage response = await
+               client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id, new StringContent(Product, Encoding.UTF8, "application/json"));
+           }
+       }
 
+        #endregion
 
-
-
-
-
-        private Products _selectedProduct;
-        public Products SelectedProduct
-        {
-            get { return _selectedProduct; }
-            set { _selectedProduct = value; OnPropertyChanged("SelectedProduct"); }
-        }
-
-        public ICommand DeleteProductCommand
+        #region Commands
+       public ICommand DeleteProductCommand
         {
             get { return new RelayCommand(DeleteProduct); }
+        }
+
+        public ICommand AddProductCommand
+        {
+            get { return new RelayCommand(AddProduct); }
         }
 
         public ICommand SaveProductCommand
@@ -94,12 +113,11 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             get { return new RelayCommand(SaveProduct); }
         }
 
-
-
-     
-   
-
-
+        public ICommand RefreshProductsCommand
+        {
+            get { return new RelayCommand(GetProducten); }
+        }
+    #endregion
 
     }
 }

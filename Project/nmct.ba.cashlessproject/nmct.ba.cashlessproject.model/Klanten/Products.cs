@@ -8,11 +8,11 @@ namespace nmct.ba.cashlessproject.model.Klanten
 {
     public class Products
     {
-        private string _id;
+        private int _id;
         private string _productName;
         private double _price;
 
-        public string Id
+        public int Id
         {
             get { return _id; }
             set { _id = value; }
@@ -21,7 +21,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
         public string ProductName
         {
             get { return _productName; }
-            set { _productName= value; }
+            set { _productName = value; }
         }
 
         public double Price
