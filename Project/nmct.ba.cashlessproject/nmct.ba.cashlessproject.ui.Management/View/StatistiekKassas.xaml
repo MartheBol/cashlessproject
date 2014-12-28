@@ -42,7 +42,7 @@
         <DatePicker Name="dtpVan" Grid.Column="3" HorizontalAlignment="Left" Height="28.958" Margin="0,0.012,0,0" Grid.Row="5" VerticalAlignment="Top" Width="103.667" Grid.RowSpan="3"/>
         <DatePicker Name="dtpTot" Grid.Column="7" HorizontalAlignment="Left" Height="28.97" Grid.Row="5" VerticalAlignment="Top" Width="103.667" Grid.RowSpan="3" Grid.ColumnSpan="2"/>
         <TextBlock Name="txbTem" Grid.Column="5" Style="{StaticResource Textblocken}" Grid.Row="6" TextWrapping="Wrap" Text="tem" Width="36.882"/>
-        <ComboBox Name="cboKassas" Grid.Column="1" HorizontalAlignment="Left" Height="28.97" Grid.Row="5" Grid.RowSpan="3" VerticalAlignment="Top" Width="103.667"/>
+        <ComboBox Name="cboKassas" ItemsSource="{Binding Kassas}" DisplayMemberPath="RegisterName" Grid.Column="1" HorizontalAlignment="Left" Height="28.97" Grid.Row="5" Grid.RowSpan="3" VerticalAlignment="Top" Width="103.667"/>
         <Button Name="btnAfmelden" Content="Afm" Margin="0,0.01,9.045,0" Grid.ColumnSpan="2" Grid.Column="10" Grid.Row="1" Style="{StaticResource Buttons}"/>
         <Button Name="btnPaswoord" Content="Pasw" Margin="0,0.01,0,0" Grid.Column="8" Grid.Row="1" Style="{StaticResource Buttons}"/>
     </Grid>

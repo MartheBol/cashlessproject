@@ -12,7 +12,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
         private string _employeeName;
         private string _address;
         private string _email;
-        private int _phone;
+        private long _phone;
 
         public int Id
         {
@@ -34,7 +34,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
             get { return _email; }
             set { _email = value; }
         }
-        public int Phone
+        public long Phone
         {
             get { return _phone; }
             set { _phone = value; }

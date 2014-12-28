@@ -29,5 +29,17 @@ namespace nmct.ba.cashlessproject.api.Controllers
             return HttpStatusCode.OK;
         }
 
+        public Employee Post(Employee emp)
+        {
+            int id = EmployeesDA.InsertEmployee(emp);
+            emp.Id = id;
+            return emp;
+        }
+
+        public HttpStatusCode Put(long id, Employee emp)
+        {
+            EmployeesDA.UpdateEmployee(id, emp);
+            return HttpStatusCode.OK;
+        }
     }
 }

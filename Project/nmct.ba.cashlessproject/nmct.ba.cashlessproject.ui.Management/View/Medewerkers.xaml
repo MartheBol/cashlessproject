@@ -10,22 +10,22 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="11*"/>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="43*"/>
             <RowDefinition Height="30*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="28*"/>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="20*"/>
+            <RowDefinition Height="26*"/>
+            <RowDefinition Height="33*"/>
             <RowDefinition Height="22*"/>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="11*"/>
-            <RowDefinition Height="23*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="19*"/>
-            <RowDefinition Height="14*"/>
+            <RowDefinition Height="24*"/>
+            <RowDefinition Height="12*"/>
+            <RowDefinition Height="12*"/>
             <RowDefinition Height="25*"/>
-            <RowDefinition Height="10*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="21*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="11*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10*"/>
@@ -44,23 +44,25 @@
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Button Name="btnAfmelden" Content="Pasw" Grid.Column="9" Grid.Row="1" Style="{StaticResource Buttons}"/>
-        <TextBlock Name="txbTitel" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="14" Grid.RowSpan="4" Margin="0,0,0.333,29.333" Text="Naam Vereniging"/>
-        <TextBlock Name="txbMedewerkers" Text="Medewerkers" Style="{StaticResource Textblocken}" Grid.Column="1" Margin="0,1.004,0,-0.001" Grid.Row="3" Grid.ColumnSpan="2"/>
-        <ListBox Name="lstMedewerkers" ItemsSource="{Binding Medewerkers}" DisplayMemberPath="EmployeeName" SelectedItem="{Binding SelectedMedewerker}" BorderBrush="Gray" BorderThickness="1"  Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="12" Grid.Row="4" Margin="0,0.001,0,9.998"/>
+        <TextBlock Name="txbTitel" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="14" Grid.RowSpan="3" Margin="0,0,0.333,1.252" Text="Naam Vereniging"/>
+        <TextBlock Name="txbMedewerkers" Text="Medewerkers" Style="{StaticResource Textblocken}" Grid.Column="1" Margin="0,13.072,0,0" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <ListBox Name="lstMedewerkers" ItemsSource="{Binding Medewerkers}" DisplayMemberPath="EmployeeName" SelectedItem="{Binding SelectedMedewerker}" BorderBrush="Gray" BorderThickness="1"  Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="12" Grid.Row="3" Margin="0,0.002,0,0"/>
 
-        <Border BorderBrush="gray" BorderThickness="1"  Grid.Column="5" Grid.ColumnSpan="8" Grid.RowSpan="11" Margin="0,0.002,0.001,9.998" Grid.Row="3" />
+        <Border BorderBrush="gray" BorderThickness="1"  Grid.Column="5" Grid.ColumnSpan="8" Grid.RowSpan="12" Margin="0,13.072,0.001,9.998" Grid.Row="2" />
 
 
-        <TextBlock Name="txbNaamWijzigen" Text="Naam" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.ColumnSpan="6" Margin="0,1.004,0.082,-0.001" Grid.Row="3"  />
-        <TextBox Name="txtNaamWijzgen" FontSize="16" Text="{Binding SelectedMedewerker.EmployeeName}" Grid.Column="6" Grid.ColumnSpan="6" Margin="0.106,0.001,0.082,30.155" Grid.Row="4" Grid.RowSpan="2"/>
-        <TextBlock Name="txbRekenignummerWijzigen"  Text="RekeningNummer" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.Row="5" Margin="0.106,6.995,0.082,20.103" Grid.ColumnSpan="6" Grid.RowSpan="2"/>
-        <TextBox Name="txtRekeningnummerWijzigen"   FontSize="70" Grid.Column="6" Grid.Row="6" Grid.ColumnSpan="7" Margin="0.106,0.001,9.986,-0.001"/>
-        <TextBlock Name="txbAdresWijzigen" Text="Adres" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.Row="7" Margin="0.106,10.001,0.082,7.045" Grid.ColumnSpan="6" Grid.RowSpan="3"/>
-        <TextBox Name="txtAdresWijzigen"  Text="{Binding SelectedMedewerker.Address}"  FontSize="16"  Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="8" Margin="8.667,10.001,9.986,10.332" Grid.RowSpan="3"/>
-        <Button Name="btnToevoegenMedewerker" Content="Toevoegen" Grid.Column="8" Grid.Row="11" Margin="0.333,0,0.333,0.667" Grid.RowSpan="2" Grid.ColumnSpan="4" Style="{StaticResource Buttons}" Height="25" VerticalAlignment="Bottom"/>
+        <TextBlock Name="txbNaamWijzigen" Text="Naam" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.ColumnSpan="6" Margin="0,13.072,0.082,0" Grid.Row="2"  />
+        <TextBox Name="txtNaamWijzgen" FontSize="16" Text="{Binding SelectedMedewerker.EmployeeName}" Grid.Column="6" Grid.ColumnSpan="7" Margin="0.351,0.002,9.818,8.018" Grid.Row="3"/>
+        <TextBlock x:Name="txbEmailWijzigen"  Text="E-mailadres" Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.Row="5" Margin="1.017,32.098,9.152,19.068" Grid.ColumnSpan="7" Grid.RowSpan="3"/>
+        <TextBox x:Name="txtEmailwijzigen" Text="{Binding SelectedMedewerker.Email}"  FontSize="16" Grid.Column="6" Grid.Row="7" Grid.ColumnSpan="6" Margin="0,0,0.111,2.005"/>
+        <TextBlock Name="txbAdresWijzigen" Text="Adres" Style="{StaticResource Textblocken}"  Grid.Column="5" Grid.Row="4" Margin="8.667,0,0.504,28.077" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
+        <TextBox Name="txtAdresWijzigen"  Text="{Binding SelectedMedewerker.Address}"  FontSize="16"  Grid.Column="6" Grid.Row="5" Grid.ColumnSpan="7" Margin="0,0,9.67,11.03"/>
+        <Button Name="btnToevoegenMedewerker" Command="{Binding AddEmployeeCommand}" Content="Toevoegen" Grid.Column="8" Grid.Row="10" Margin="0.333,0,0.333,0.667" Grid.RowSpan="3" Grid.ColumnSpan="4" Style="{StaticResource Buttons}" Height="25" VerticalAlignment="Bottom"/>
         <Button Name="btnVerwijderenMedewerker" Command="{Binding DeleteMederwerkerCommand}" Content="Medewerker verwijderen" Style="{StaticResource Verwijderen}" FontSize="16" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="14" Grid.RowSpan="2" Margin="0,0.002,0.001,9.998"/>
-        <Button Name="btnWijzigenMedewerker" Content="Wijzigen"  Grid.Column="6" Grid.Row="11" Margin="25,0.333,4.667,0.667" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource Buttons}"/>
+        <Button Name="btnWijzigenMedewerker" Command="{Binding SaveEmployeeCommand}" Content="Wijzigen"  Grid.Column="6" Grid.Row="11" Margin="25,0.333,4.667,0.667" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource Buttons}"/>
         <Button Name="btnPaswoord" Content="Afm" Grid.Column="11" Grid.ColumnSpan="2" Grid.Row="1" Style="{StaticResource Buttons}"/>
+        <TextBlock x:Name="txbTelefoonnr"  Text="Telefoonnr." Style="{StaticResource Textblocken}"  Grid.Column="6" Grid.Row="9" Margin="1.017,0,9.152,9.047" Grid.ColumnSpan="7" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtTelefoonnr" FontSize="16" Text="{Binding SelectedMedewerker.Phone}" Grid.Column="7" Grid.ColumnSpan="5" Margin="0.333,0,0.171,15.043" Grid.Row="9" Grid.RowSpan="2"/>
 
     </Grid>
 

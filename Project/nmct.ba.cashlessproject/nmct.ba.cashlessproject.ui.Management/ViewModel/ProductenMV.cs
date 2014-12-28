@@ -47,7 +47,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(ConfigurationSettings.AppSettings.Get("apiUrl") + "api/products");
+                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/");
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
@@ -85,15 +85,15 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             }
         }
 
-       public async void SaveProduct()
-       {
-           using (HttpClient client = new HttpClient())
-           {
-               string Product = JsonConvert.SerializeObject(SelectedProduct);
-               HttpResponseMessage response = await
-               client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id, new StringContent(Product, Encoding.UTF8, "application/json"));
-           }
-       }
+    
+        public async void SaveProduct()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string Employee = JsonConvert.SerializeObject(SelectedProduct);
+                HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id , new StringContent(Employee, Encoding.UTF8, "application/json"));
+            }
+        }
 
         #endregion
 

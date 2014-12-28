@@ -15,6 +15,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
     class MedewerkersVM : ObservableObject, IPage
     {
+        #region Properties
         public string Name
         {
             get { return "Medewerkers"; }
@@ -33,11 +34,21 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { _medewerkers = value; OnPropertyChanged("Medewerkers"); }
         }
 
+        private Employee _selectedMedewerker;
+        public Employee SelectedMedewerker
+        {
+            get { return _selectedMedewerker; }
+            set { _selectedMedewerker = value; OnPropertyChanged("SelectedMedewerker"); }
+        }
+        #endregion
+
+        #region Methods
+
         private async void GetMedewerkers()
         {
             using (HttpClient client = new HttpClient())
             {
-                HttpResponseMessage response = await client.GetAsync(ConfigurationSettings.AppSettings.Get("apiUrl")+"api/employees");
+                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees");
                 if(response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
@@ -63,20 +74,58 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             }
         }
 
+        public async void AddEmployee()
+        {
+            Employee newEmployee = new Employee() {EmployeeName = "Nieuwe mederwerker"};
+            using (HttpClient client = new HttpClient())
+            {
+                string employee = JsonConvert.SerializeObject(newEmployee);
+                HttpResponseMessage response = await client.PostAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees", new StringContent(employee, Encoding.UTF8, "application/json"));
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    Employee emp = JsonConvert.DeserializeObject<Employee>(json);
+                    if (emp != null)
+                    {
+                        Medewerkers.Add(emp);
+                        SelectedMedewerker = emp;
+                    }
 
+                }
+            }
+        }
+
+        public async void SaveEmployee()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string Employee = JsonConvert.SerializeObject(SelectedMedewerker);
+                HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees/" + SelectedMedewerker.Id, new StringContent(Employee, Encoding.UTF8, "application/json"));
+            }
+        }
+
+
+        #endregion
+
+        #region Commands
         public ICommand DeleteMederwerkerCommand
         {
             get { return new RelayCommand(DeleteMedewerker); }
         }
-
-
-        private Employee _selectedMedewerker;
-        public Employee SelectedMedewerker
+        public ICommand AddEmployeeCommand
         {
-            get { return _selectedMedewerker; }
-            set { _selectedMedewerker = value; OnPropertyChanged("SelectedMedewerker"); }
+            get { return new RelayCommand(AddEmployee); }
         }
+        public ICommand SaveEmployeeCommand
+        {
+            get { return new RelayCommand(SaveEmployee); }
+        }
+
+        #endregion
+
+    
        
+
 
     }
 }

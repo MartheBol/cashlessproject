@@ -60,10 +60,9 @@ namespace nmct.ba.cashlessproject.api.Models
 
 
         //Toevoegen van een product 
-        public static void AddProduct(Products product)
+        /*public static void AddProduct(Products product)
         {
-            if(product != null)
-            {
+            
                 string productName = product.ProductName;
                 double productPrice = product.Price;
                 DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@ProductName", productName);
@@ -73,7 +72,7 @@ namespace nmct.ba.cashlessproject.api.Models
                 Database.InsertData(CONNECTIONSTRING, sql, par1, par2);
             }
            
-        }
+        }*/
 
 
         public static int InsertProduct(Products Product)
@@ -83,6 +82,7 @@ namespace nmct.ba.cashlessproject.api.Models
             DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Price", Product.Price);
 
             return Database.InsertData(CONNECTIONSTRING, sql, par1, par2);
+
         }
 
 
