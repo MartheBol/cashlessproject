@@ -21,6 +21,7 @@ namespace nmct.ssa.cashlessproject.webapp.Migrations
 
             string roleAdmin = "Administrator";
             string roleNormalUser = "User";
+            string roleOrgManager = "OrganisationManager";
             IdentityResult roleResult;
 
             var RoleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
@@ -31,6 +32,10 @@ namespace nmct.ssa.cashlessproject.webapp.Migrations
             if (!RoleManager.RoleExists(roleAdmin))
             {
                 roleResult = RoleManager.Create(new IdentityRole(roleAdmin));
+            }
+            if (!RoleManager.RoleExists(roleOrgManager))
+            {
+                roleResult = RoleManager.Create(new IdentityRole(roleOrgManager));
             }
 
             if (!context.Users.Any(u => u.Email.Equals("marthe.bol@hotmail.com")))

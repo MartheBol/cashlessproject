@@ -203,6 +203,7 @@
     <Compile Include="Controllers\OrganisationsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\Registers.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -305,7 +306,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\nmct.ba.cashlessproject.model\nmct.ba.cashlessproject.model.csproj">
-      <Project>{45802d1f-b1f3-4c76-8622-7f0814e9ea39}</Project>
+      <Project>{c2972025-8c85-4563-a039-e8ec0bd15704}</Project>
       <Name>nmct.ba.cashlessproject.model</Name>
     </ProjectReference>
   </ItemGroup>

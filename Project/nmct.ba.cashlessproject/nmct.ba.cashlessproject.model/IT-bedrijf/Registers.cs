@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace nmct.ba.cashlessproject.model
+namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 {
-    class Registers
+    public class Registers
     {
         private string _id;
         private string _registerName;

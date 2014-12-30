@@ -1,11 +1,18 @@
-﻿using System;
+﻿using nmct.ssa.cashlessproject.webapp.Models;
+using nmct.ssa.cashlessproject.webapp.Providers;
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Microsoft.Owin.Security.OAuth;
 using Owin;
-using nmct.ssa.cashlessproject.webapp.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace nmct.ssa.cashlessproject.webapp
 {
@@ -14,6 +21,20 @@ namespace nmct.ssa.cashlessproject.webapp
         // For more information on configuring authentication, please visit http://go.microsoft.com/fwlink/?LinkId=301864
         public void ConfigureAuth(IAppBuilder app)
         {
+
+            app.UseOAuthAuthorizationServer(new OAuthAuthorizationServerOptions()
+            {
+                AllowInsecureHttp = true,
+                TokenEndpointPath = new PathString("/token"),
+                AccessTokenExpireTimeSpan = TimeSpan.FromHours(8),
+                Provider = new SimpleAuthorizationServerProvider()
+            }
+         );
+
+            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+
+            
+
             // Configure the db context, user manager and signin manager to use a single instance per request
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);

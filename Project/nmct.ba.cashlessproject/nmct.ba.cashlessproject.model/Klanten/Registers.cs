@@ -15,7 +15,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
         public int Id
         {
             get { return _id; }
-            set { _id = value;  }
+            set { _id = value; }
         }
 
         public string RegisterName

@@ -3,12 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:v="clr-namespace:nmct.ba.cashlessproject.ui.Management.View"
         xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.Management.ViewModel"
-        Title="MainWindow" Width="700" Height="800">
+        Title="MainWindow" Height="500" Width="525">
     <Window.DataContext>
         <vm:ApplicationVM/>
     </Window.DataContext>
     
     <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:LoginVM}">
+            <v:Login/>
+        </DataTemplate>
   
         <DataTemplate DataType="{x:Type vm:ProductenMV}">
             <v:Producten/>
@@ -43,7 +46,7 @@
     <Grid>
         
         
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
@@ -57,17 +60,17 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
-            <!--
+            
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                     </StackPanel>
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>-->
+            </ItemsControl.ItemsPanel>
 
-        </ItemsControl>
-    
-        <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"/>
+        </ItemsControl>-->
+
+        <ContentControl Content="{Binding CurrentPage}" Height="350" Width="525"/>
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace nmct.ba.cashlessproject.model.Klanten
 {
-    class Errorlog
+    public class Errorlog
     {
         private string _registerId;
         private DateTime _timestamp;
@@ -27,15 +27,15 @@ namespace nmct.ba.cashlessproject.model.Klanten
 
         public string Message
         {
-            get { return _message;}
+            get { return _message; }
             set { _message = value; }
         }
 
         public string StackTrace
         {
-            get { return _stackTrace;}
-            set { _stackTrace = value;}
+            get { return _stackTrace; }
+            set { _stackTrace = value; }
         }
-        
+
     }
 }

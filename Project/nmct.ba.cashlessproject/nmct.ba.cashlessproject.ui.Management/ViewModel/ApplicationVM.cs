@@ -5,11 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Thinktecture.IdentityModel.Client;
 
 namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
     class ApplicationVM : ObservableObject
     {
+        public static TokenResponse token = null;
+
         public ApplicationVM()
         {
             Pages.Add(new ProductenMV());
@@ -22,7 +25,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
             // Add other pages
 
-            CurrentPage = Pages[0];
+            CurrentPage = new LoginVM();
         }
 
         private object currentPage;
@@ -48,7 +51,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             get { return new RelayCommand<IPage>(ChangePage); }
         }
 
-        private void ChangePage(IPage page)
+        public void ChangePage(IPage page)
         {
             CurrentPage = page;
         }

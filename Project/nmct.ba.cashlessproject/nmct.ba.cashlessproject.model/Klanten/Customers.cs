@@ -9,17 +9,17 @@ namespace nmct.ba.cashlessproject.model.Klanten
     public class Customers
     {
         private int _id;
-       
+
         private string _customerName;
         private string _address;
         private string _sex;
         private byte[] _picture;
         private DateTime _birthDate;
         private double _balance;
-       
 
 
-       
+
+
         public int Id
         {
             get { return _id; }
@@ -44,8 +44,8 @@ namespace nmct.ba.cashlessproject.model.Klanten
         }
         public double Balance
         {
-            get{return _balance;}
-            set{_balance = value;}
+            get { return _balance; }
+            set { _balance = value; }
         }
 
         public DateTime BirthDate
@@ -64,7 +64,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
         {
             get { return string.Format("{0} | {1} ({2} {3})", Id, CustomerName, "huidig saldo: €", Balance); }
         }
-        
-        
+
+
     }
 }

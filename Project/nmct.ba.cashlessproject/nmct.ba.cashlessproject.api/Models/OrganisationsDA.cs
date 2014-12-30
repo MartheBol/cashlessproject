@@ -6,6 +6,7 @@ using nmct.ba.cashlessproject.model;
 using nmct.ba.cashlessproject.api.Helper;
 using System.Data.Common;
 using System.Data;
+using nmct.ba.cashlessproject.model.IT_Bedrijf;
 
 
 namespace nmct.ba.cashlessproject.api.Models
@@ -39,7 +40,7 @@ namespace nmct.ba.cashlessproject.api.Models
                 Password = record["Password"].ToString(),
                 DbName = record["DbName"].ToString(),
                 DbLogin = record["DbLogin"].ToString(),
-                OrganistationName = record["OrganisationName"].ToString(),
+                OrganisationName = record["OrganisationName"].ToString(),
                 Address = record["Address"].ToString(),
                 Email = record["Email"].ToString(),
                 Phone = Int32.Parse(record["Phone"].ToString())

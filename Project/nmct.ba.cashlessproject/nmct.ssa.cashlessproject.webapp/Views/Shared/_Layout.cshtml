@@ -17,13 +17,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("IT Bedrijf", "Index", "Verenigingen", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @*<li>@Html.ActionLink("Verenigingen", "Index", "Verenigingen")</li>*@
+                    <li class="dropdown">
+                        <a href="~/Views/Verenigingen/Index.cshtml" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Verenigingen <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Overzicht", "Index", "Verenigingen")</li>
+                            <li>@Html.ActionLink("Nieuwe vereniging", "Add", "Verenigingen")</li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="~/Views/Kassa/Index.cshtml" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Kassa's <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Overzicht", "Index", "Kassa")</li>
+                            <li>@Html.ActionLink("Nieuwe kassa", "Add", "Kassa")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("Over ons", "About", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -33,7 +46,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Cashlesproject IT-Bedrijf</p>
         </footer>
     </div>
 
