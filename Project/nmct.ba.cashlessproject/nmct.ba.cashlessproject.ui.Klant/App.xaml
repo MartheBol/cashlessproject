@@ -10,8 +10,23 @@
             <Setter Property="Foreground" Value="Black"/>
             <Setter Property="TextAlignment" Value="Center"/>
         </Style>
-        
-        
+
+        <Style x:Key="Buttons" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="#e85e00"/>
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+        <Style x:Key="Tekstblokken" TargetType="{x:Type TextBlock}">
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="#e85e00"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+
     </Application.Resources>
 </Application>
 

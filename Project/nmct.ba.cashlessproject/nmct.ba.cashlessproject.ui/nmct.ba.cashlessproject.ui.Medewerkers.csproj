@@ -84,14 +84,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ViewModel\ApplicationVM.cs" />
-    <Compile Include="ViewModel\BeginschermVM.cs" />
-    <Compile Include="ViewModel\BestellingVM.cs" />
-    <Compile Include="ViewModel\KlantenVM.cs" />
-    <Compile Include="ViewModel\ManagementVM.cs" />
-    <Compile Include="ViewModel\MedewerkersKeuzeVM.cs" />
-    <Compile Include="ViewModel\PageOneVM.cs" />
-    <Compile Include="ViewModel\ToevoegenAanBestellingVM.cs" />
+    <Compile Include="View\ViewModel\ApplicationVM.cs" />
+    <Compile Include="View\ViewModel\BeginschermVM.cs" />
+    <Compile Include="View\ViewModel\BestellingVM.cs" />
+    <Compile Include="View\ViewModel\KlantenVM.cs" />
+    <Compile Include="View\ViewModel\ManagementVM.cs" />
+    <Compile Include="View\ViewModel\MedewerkersKeuzeVM.cs" />
+    <Compile Include="View\ViewModel\PageOneVM.cs" />
+    <Compile Include="View\ViewModel\ToevoegenAanBestellingVM.cs" />
     <Compile Include="View\Beginscherm.xaml.cs">
       <DependentUpon>Beginscherm.xaml</DependentUpon>
     </Compile>
@@ -137,8 +137,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModel\IPage.cs" />
-    <Compile Include="ViewModel\ObservableObject.cs" />
+    <Compile Include="View\ViewModel\IPage.cs" />
+    <Compile Include="View\ViewModel\ObservableObject.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ExpressionBlendVersion>12.0.51020.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -84,6 +85,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="RegisterGegevens.xaml.cs">
+      <DependentUpon>RegisterGegevens.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\ApplicationVM.cs" />
     <Compile Include="ViewModel\KassasysteemVM.cs" />
     <Compile Include="ViewModel\OpladenVM.cs" />
@@ -93,11 +97,17 @@
     <Compile Include="View\Kassasysteem.xaml.cs">
       <DependentUpon>Kassasysteem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\KlantRegistreren.xaml.cs">
+      <DependentUpon>KlantRegistreren.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Opladen.xaml.cs">
       <DependentUpon>Opladen.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RegisterGegevens.xaml.cs">
+      <DependentUpon>RegisterGegevens.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Registreren.xaml.cs">
       <DependentUpon>Registreren.xaml</DependentUpon>
@@ -105,7 +115,15 @@
     <Compile Include="View\Saldo.xaml.cs">
       <DependentUpon>Saldo.xaml</DependentUpon>
     </Compile>
+    <Page Include="RegisterGegevens.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\Kassasysteem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\KlantRegistreren.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Page1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\RegisterGegevens.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

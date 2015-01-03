@@ -20,6 +20,7 @@ CREATE TABLE [dbo].[Customer](
 	[Address] [nvarchar](50) NOT NULL,
 	[Picture] [image] NULL,
 	[Balance] [numeric](18, 0) NOT NULL,
+	
  CONSTRAINT [PK_Customer] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC

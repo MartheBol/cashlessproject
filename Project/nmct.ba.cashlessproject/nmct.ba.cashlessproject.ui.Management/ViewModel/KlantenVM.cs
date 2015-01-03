@@ -25,8 +25,10 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         public KlantenVM()
         {
-            
+            if (ApplicationVM.token != null)
+            {
                 GetKlanten();
+            }
             
         }
 
@@ -35,7 +37,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         public ObservableCollection<Customers> Klanten
         {
             get { return _klanten; }
-            set { _klanten = value; OnPropertyChanged("Medewerkers"); }
+            set { _klanten = value; OnPropertyChanged("Klanten"); }
 
         }
 
@@ -53,6 +55,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/customers/");
                 if(response.IsSuccessStatusCode)
                 {
@@ -65,8 +68,10 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         public async void SaveKlanten()
         {
+           
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string Klant = JsonConvert.SerializeObject(SelectedKlant);
                 HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/customers/" + SelectedKlant.Id, new StringContent(Klant, Encoding.UTF8, "application/json"));
             }
