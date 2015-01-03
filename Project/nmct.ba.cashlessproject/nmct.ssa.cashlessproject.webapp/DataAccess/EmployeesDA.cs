@@ -30,6 +30,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             return list;
         }
 
+
         private static Employee Create(IDataRecord record)
         {
             return new Employee()

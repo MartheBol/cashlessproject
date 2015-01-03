@@ -14,6 +14,7 @@
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <ExpressionBlendVersion>12.0.51020.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -54,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions">
       <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\net45\System.Net.Http.Extensions.dll</HintPath>
@@ -85,6 +87,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\StringToImageConverter.cs" />
     <Compile Include="ViewModel\ApplicationVM.cs" />
     <Compile Include="ViewModel\KassaVM.cs" />
     <Compile Include="ViewModel\KlantenVM.cs" />
@@ -95,6 +98,7 @@
     <Compile Include="ViewModel\StatistiekKassasVM.cs" />
     <Compile Include="ViewModel\StatistiekProductenVM.cs" />
     <Compile Include="ViewModel\StatistiekTotaleVerkoopVM.cs" />
+    <Compile Include="ViewModel\WachtwoordWijzigenVM.cs" />
     <Compile Include="View\Kassas.xaml.cs">
       <DependentUpon>Kassas.xaml</DependentUpon>
     </Compile>
@@ -118,6 +122,12 @@
     </Compile>
     <Compile Include="View\StatistiekTotaleVerkoop.xaml.cs">
       <DependentUpon>StatistiekTotaleVerkoop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WachtwoordVeranderen.xaml.cs">
+      <DependentUpon>WachtwoordVeranderen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WachtwoordWijzigen.xaml.cs">
+      <DependentUpon>WachtwoordWijzigen.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebAccess.cs" />
     <Page Include="View\Kassas.xaml">
@@ -166,6 +176,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\WachtwoordVeranderen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WachtwoordWijzigen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -202,6 +220,10 @@
       <Project>{c2972025-8c85-4563-a039-e8ec0bd15704}</Project>
       <Name>nmct.ba.cashlessproject.model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\noimage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />

@@ -8,6 +8,7 @@ using System.Web.Mvc;
 
 namespace nmct.ssa.cashlessproject.webapp.Controllers
 {
+    [Authorize]
     public class VerenigingenController : Controller
     {
         // GET: Verenigingen
@@ -18,6 +19,23 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
             ViewBag.Vers = vers;
             return View();
         }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Create(Organisations o)
+        {
+            int validInsert = OrganisationsDA.InsertOrganisations(o);
+            if (validInsert != 0)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
 
         [HttpGet]
        public ActionResult Edit(int id)
@@ -44,5 +62,7 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
             if (org == null) return new HttpNotFoundResult();
             return View(org);
         }
+
+
     }
 }

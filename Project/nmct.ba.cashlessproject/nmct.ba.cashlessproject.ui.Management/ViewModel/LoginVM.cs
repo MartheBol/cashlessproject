@@ -38,7 +38,6 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { _error = value; OnPropertyChanged("Error"); }
         }
 
-
         public ICommand LoginCommand
         {
             get { return new RelayCommand(Login); }

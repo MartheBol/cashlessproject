@@ -1,0 +1,71 @@
+﻿@model nmct.ba.cashlessproject.model.IT_Bedrijf.Registers
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Registers</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            <label class="control-label col-md-2"> Naam kassa</label>
+            <div class="col-md-10">
+                <input class="form-control" type="text" value='@ViewBag.RegisterName'>
+            </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Device, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Device, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Device, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="disabledInput"> Aankoopdatum (dd/mm/yyyy)</label>
+        <div class="col-md-10">
+            <input class="form-control" id="disabledInput" type="text" value='@ViewBag.PuchaseDate.ToString("dd/mm/yyyy")' disabled="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2" for="disabledInput"> Vervaldatum (dd/mm/yyyy)</label>
+        <div class="col-md-10">
+            <input class="form-control" id="disabledInput" type="text" value='@ViewBag.ExpiresDate.ToString("dd-mm-yyyy")' disabled="">
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.OrganisationName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.OrganisationName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.OrganisationName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

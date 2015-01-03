@@ -1,0 +1,56 @@
+﻿@model nmct.ba.cashlessproject.model.IT_Bedrijf.Registers
+
+<h1>Kassa's</h1>
+<h2>@ViewBag.Title</h2>
+<div class="form-group">
+    <label id="lblToonKassa" class="control-label col-md-4">Toon overzicht kassa's per vereniging:</label>
+    <div class="col-md-8">
+        <div class="dropdown">
+            <select class="form-control" name="OrganisationName" onchange="window.location = 'http://localhost:13160/Kassa/Search/?id=' + this.value">
+                <option selected disabled>Kies een vereniging</option>
+                @foreach (var or in ViewBag.Organisations)
+                {
+                    if (or.Id == ViewBag.SelectedOrganisation)
+                    {
+                        <option selected value="@or.Id">@or.OrganisationName</option>
+                    }
+                    else
+                    {
+                        <option value="@or.Id">@or.OrganisationName</option>
+                    }
+                }
+            </select>
+        </div>
+    </div>
+</div>
+
+<br /><br />
+
+<table class="table table-striped">
+    <tr>
+        <th class="col-md-1">Kassa ID</th>
+        <th class="col-md-1">Naam kassa</th>
+        <th class="col-md-1">Organisatie</th>
+        <th class="col-md-1">Merk</th>
+        <th class="col-md-1">Aankoopdatum</th>
+        <th class="col-md-1">Vervaldatum</th>
+    </tr>
+    @foreach (var item in ViewBag.RegistersPerOrganisation)
+    {
+        <tr>
+            <td class="col-md-1">@item.Id</td>
+            <td class="col-md-1">@item.RegisterName</td>
+            <td class="col-md-1">@item.OrganisationName</td>
+            <td class="col-md-1">@item.Device</td>
+            <td class="col-md-1">@item.PurchaseDate.ToString("dd-MM-yyyy")</td>
+            <td class="col-md-1">@item.ExpiresDate.ToString("dd-MM-yyyy")</td>
+        </tr>
+    }
+</table>
+
+<div id="terug">
+    <a href="/kassa/index/" class=".col-md-6 btn btn-info btn-lg" id="terug" value="terug">Terug naar overzicht alle kassa's</a>
+</div>
+
+
+

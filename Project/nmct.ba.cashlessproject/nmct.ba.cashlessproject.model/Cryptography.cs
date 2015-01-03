@@ -31,7 +31,6 @@ namespace nmct.ba.cashlessproject.model
             }
             return input;
         }
-
         public static string Decrypt(string input)
         {
             string EncryptionKey = "MAKV2SPBNI99212";

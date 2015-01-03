@@ -1,0 +1,96 @@
+﻿@model IEnumerable<nmct.ba.cashlessproject.model.IT_Bedrijf.Registers>
+
+
+<h2>Index</h2>
+
+<div class=".radio-inline">
+    <h1>Kassa's</h1>
+    <h2 class=".col-md-4">Overzicht</h2>
+    <ul class="list-inline">
+        <li><a id="nieuw" href="/kassa/create/" class=".col-md-4 btn btn-primary btn-lg" value="nieuw">Nieuwe kassa</a></li>
+        <li><a id="per_vereniging" href="/kassa/search/" class=".col-md-4 btn btn-primary btn-lg" value="vereniging">Overzicht per vereniging</a></li>
+    </ul>
+</div>
+<div role="tabpanel">
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Beschikbare kassa's</a></li>
+        <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Toegekende kassa's</a></li>
+        <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Alle kassa's</a></li>
+    </ul>
+    <div class="tab-content">
+       
+        <div role="tabpanel" class="tab-pane active" id="tab1">
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-1">Kassa ID</th>
+                    <th class="col-md-1">Naam kassa</th>
+                    <th class="col-md-1">Merk</th>
+                    <th class="col-md-1">Aankoopdatum</th>
+                    <th class="col-md-1">Vervaldatum</th>
+                    <th class="col-md-1"></th>
+                </tr>
+                @foreach (var item in ViewBag.BeschikbareKassas)
+                {
+                    <tr>
+                        <td class="col-md-1">@item.Id</td>
+                        <td class="col-md-1">@item.RegisterName</td>
+                        <td class="col-md-1">@item.Device</td>
+                        <td class="col-md-1">@item.PurchaseDate</td>
+                        <td class="col-md-1">@item.ExpiresDate</td>
+                        <td class="col-md-1"><a href="/kassa/update/@item.Id" class="btn btn-default" value="bewerk" name="btnBewerk">Wijzig vereniging</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab2">
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-1">Kassa ID</th>
+                    <th class="col-md-1">Naam kassa</th>
+                    <th class="col-md-1">Vereniging</th>
+                    <th class="col-md-1">Merk</th>
+                    <th class="col-md-1">Aankoopdatum</th>
+                    <th class="col-md-1">Vervaldatum</th>
+                    <th class="col-md-1"></th>
+                </tr>
+                @foreach (var item in ViewBag.ToegekendeKassas)
+                {
+                    <tr>
+                        <td class="col-md-1">@item.Id</td>
+                        <td class="col-md-1">@item.RegisterName</td>
+                        <td class="col-md-1">@item.OrganisationName</td>
+                        <td class="col-md-1">@item.Device</td>
+                        <td class="col-md-1">@item.PurchaseDate</td>
+                        <td class="col-md-1">@item.ExpiresDate</td>
+                        <td class="col-md-1"><a href="/kassa/update/@item.Id" class="btn btn-default" value="bewerk" name="btnBewerk">Wijzig vereniging</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="tab3">
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-1">Kassa ID</th>
+                    <th class="col-md-1">Naam kassa</th>
+                    <th class="col-md-1">Vereniging</th>
+                    <th class="col-md-1">Merk</th>
+                    <th class="col-md-1">Aankoopdatum</th>
+                    <th class="col-md-1">Vervaldatum</th>
+                    <th class="col-md-1"></th>
+                </tr>
+                @foreach (var item in ViewBag.Registers)
+                {
+                    <tr>
+                        <td class="col-md-1">@item.Id</td>
+                        <td class="col-md-1">@item.RegisterName</td>
+                        <td class="col-md-1">@item.OrganisationName</td>
+                        <td class="col-md-1">@item.Device</td>
+                        <td class="col-md-1">@item.PurchaseDate</td>
+                        <td class="col-md-1">@item.ExpiresDate</td>
+                        <td class="col-md-1"><a href="/kassa/update/@item.Id" class="btn btn-default" value="bewerk" name="btnBewerk">Wijzig vereniging</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

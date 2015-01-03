@@ -22,6 +22,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             Pages.Add(new StatistiekTotaleVerkoopVM());
             Pages.Add(new StatistiekKassasVM());
             Pages.Add(new StatistiekProductenVM());
+            Pages.Add(new WachtwoordWijzigenVM());
 
             // Add other pages
 

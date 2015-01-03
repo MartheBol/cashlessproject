@@ -19,6 +19,24 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
             return OrganisationsDA.GetOrganistations();
         }
 
+        public object ChangePassword(string oldPassword, string newPassword)
+        {
+            if (oldPassword == null || newPassword == null || oldPassword == "" || newPassword == "")
+                return "false";
+
+            if (OrganisationsDA.TryLogin(User.Identity.Name, oldPassword) == null)
+                return "false";
+
+            var org = OrganisationsDA.GetByUser(User.Identity.Name);
+
+            if (org == null)
+                return "false";
+
+            OrganisationsDA.ChangePassword(org.Id, newPassword);
+
+            return "true";
+        }
+
 
         /*
         public int Post(Bankaccount ba)

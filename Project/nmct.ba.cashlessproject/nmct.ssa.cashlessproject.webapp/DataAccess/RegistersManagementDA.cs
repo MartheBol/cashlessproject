@@ -2,6 +2,7 @@
 using nmct.ssa.cashlessproject.webapp.Helper;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Web;
@@ -30,5 +31,8 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             reader.Close();
             return list;
         }
+
+       
+
     }
 }

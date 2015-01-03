@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace nmct.ba.cashlessproject.ui.Management.View
 {
     /// <summary>
-    /// Interaction logic for Klanten.xaml
+    /// Interaction logic for WachtwoordVeranderen.xaml
     /// </summary>
-    public partial class Klanten : UserControl
+    public partial class WachtwoordVeranderen : UserControl
     {
-        public Klanten()
+        public WachtwoordVeranderen()
         {
             InitializeComponent();
         }
-
-     
-
-      
-
     }
 }

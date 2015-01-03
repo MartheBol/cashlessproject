@@ -17,7 +17,7 @@ namespace nmct.ba.cashlessproject.api.Models
         {
             List<Customers> list = new List<Customers>();
 
-            string sql = "SELECT ID,CustomerName, Address, Picture, Balance, Birthdate, Sex FROM Customers";
+            string sql = "SELECT ID,CustomerName, Address, Picture, Balance, Sex FROM Customers";
             DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql);
 
             while (reader.Read())
@@ -28,7 +28,6 @@ namespace nmct.ba.cashlessproject.api.Models
                 c.CustomerName = reader["CustomerName"].ToString();
                 c.Address = reader["Address"].ToString();
                 c.Balance = Double.Parse(reader["Balance"].ToString());
-                c.BirthDate = DateTime.Parse(reader["Birthdate"].ToString());
                 c.Sex = reader["Sex"].ToString();
 
                 list.Add(c);

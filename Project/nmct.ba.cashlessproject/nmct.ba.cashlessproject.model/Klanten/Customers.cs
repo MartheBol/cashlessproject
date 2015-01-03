@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,6 @@ namespace nmct.ba.cashlessproject.model.Klanten
         private string _address;
         private string _sex;
         private byte[] _picture;
-        private DateTime _birthDate;
         private double _balance;
 
 
@@ -48,12 +48,7 @@ namespace nmct.ba.cashlessproject.model.Klanten
             set { _balance = value; }
         }
 
-        public DateTime BirthDate
-        {
-            get { return _birthDate; }
-            set { value = _birthDate; }
-        }
-
+        
         public string Sex
         {
             get { return _sex; }
@@ -64,7 +59,6 @@ namespace nmct.ba.cashlessproject.model.Klanten
         {
             get { return string.Format("{0} | {1} ({2} {3})", Id, CustomerName, "huidig saldo: €", Balance); }
         }
-
 
     }
 }

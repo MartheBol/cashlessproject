@@ -12,7 +12,12 @@
         <DataTemplate DataType="{x:Type vm:LoginVM}">
             <v:Login/>
         </DataTemplate>
-  
+
+        <DataTemplate DataType="{x:Type vm:WachtwoordWijzigenVM}">
+            <v:WachtwoordVeranderen/>
+        </DataTemplate>
+
+
         <DataTemplate DataType="{x:Type vm:ProductenMV}">
             <v:Producten/>
         </DataTemplate>
@@ -40,13 +45,14 @@
         <DataTemplate DataType="{x:Type vm:StatistiekProductenVM}">
             <v:StatistiekProducten/>
         </DataTemplate>
-                   
+        
+        
     </Window.Resources>
     
     <Grid>
         
         
-        <!--<Grid.RowDefinitions>
+        <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
@@ -60,17 +66,17 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
 
-            
+           <!--
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
 
                     </StackPanel>
                 </ItemsPanelTemplate>
-            </ItemsControl.ItemsPanel>
+            </ItemsControl.ItemsPanel>-->
 
-        </ItemsControl>-->
+        </ItemsControl>
 
-        <ContentControl Content="{Binding CurrentPage}" Height="350" Width="525"/>
+        <ContentControl Content="{Binding CurrentPage}" Grid.Row="1" />
     </Grid>
 </Window>
