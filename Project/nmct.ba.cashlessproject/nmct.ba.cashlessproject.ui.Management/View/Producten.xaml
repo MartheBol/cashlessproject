@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.Management.ViewModel"
         mc:Ignorable="d" 
-       Height="350" Width="525">
-
+       Height="350" Width="726.778">
+    <UserControl.DataContext>
+        <vm:ProductenMV/>
+    </UserControl.DataContext>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -38,7 +41,11 @@
             <ColumnDefinition Width="7*"/>
             <ColumnDefinition Width="24*"/>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="10*"/>
+
+			<ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
         <Button Name="btnAfmelden" Content="Afm" Grid.Column="11" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Buttons}" Margin="0,0.333,0.333,0.333"/>
         <TextBlock Name="txbTitel" Text="Naam Vereniging" Style="{StaticResource PaginaTittels}"  Grid.ColumnSpan="14" Grid.RowSpan="2"    />
@@ -53,10 +60,14 @@
         <TextBlock Name="txbPrijsWijzigen" Text="Prijs" Style="{StaticResource Textblocken}" Grid.Column="5" Grid.Row="6" Margin="8.925,19.978,25.092,0.001" Grid.ColumnSpan="5" Grid.RowSpan="2"/>
         <TextBox Name="txtPrijsWijzigen"   Text ="{Binding SelectedProduct.Price}" FontSize="16"  Grid.Column="5" Grid.Row="8" Grid.ColumnSpan="7" Margin="8.925,0.99,0.082,19.031" Grid.RowSpan="2"/>
         <Button Name="btnToevoegenProduct"  Command="{Binding AddProductCommand}" Content="Toevoegen" FontSize="14"  Grid.Column="8" Grid.Row="9" Margin="0.333,25,0.333,14" Grid.RowSpan="3" Grid.ColumnSpan="4" Style="{StaticResource Buttons}"/>
-        <Button Name="btnVerwijderenProduct"  Content="PRODUCT VERWIJDEREN" Style="{StaticResource Verwijderen}" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="11" Margin="0,32.965,0.985,0.011" Grid.RowSpan="2"/>
+        <Button Name="btnVerwijderenProduct"  Content="PRODUCT VERWIJDEREN" Command="{Binding DeleteProductCommand}" Style="{StaticResource Verwijderen}" Grid.Column="5" Grid.ColumnSpan="8" Grid.Row="11" Margin="0,32.965,0.985,0.011" Grid.RowSpan="2"/>
         <Button Name="btnWijzigenProduct"   Command="{Binding SaveProductCommand}" Content="Wijzigen" FontSize="14"  Grid.Column="6" Grid.Row="9" Margin="26.333,25,5.667,14" Grid.RowSpan="3" Style="{StaticResource Buttons}" Grid.ColumnSpan="2"/>
         <Button Name="btnHerladen" Command="{Binding RefreshProductsCommand}" Background="LightGray"  Content="Herladen" FontSize="14"  Grid.Column="3" Grid.Row="2" Margin="52.333,43.667,0.333,4.667" Grid.RowSpan="2" Style="{StaticResource Buttons}"/>
         <Button Name="btnPaswoord" Content="Pasw" Grid.Column="9" Grid.Row="1" Style="{StaticResource Buttons}" Margin="0,0.333,0.333,0.333"/>
+        <Button x:Name="btnKassas" Style="{StaticResource Navigatie}" Content="Kassa's" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Grid.Row="3" VerticalAlignment="Top" Width="151.74" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[2], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnKlanten" Style="{StaticResource Navigatie}" Content="Klanten" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Margin="0,3.805,0,0" Grid.Row="4" VerticalAlignment="Top" Width="151.74" Grid.RowSpan="2" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[7], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnMedewerkers"  Style="{StaticResource Navigatie}" Content="Medewerkers" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Margin="0,13.061,0,0" Grid.Row="5" VerticalAlignment="Top" Width="151.74" Grid.RowSpan="2" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[1], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnStatistieken"  Style="{StaticResource Navigatie}" Content="Statistieken" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Margin="0,14.684,0,0" Grid.Row="6" VerticalAlignment="Top" Width="151.74" Grid.RowSpan="2" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[3], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
 
     </Grid>
 

@@ -173,14 +173,17 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KassaController.cs" />
+    <Compile Include="Controllers\KlantController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganisationsController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\VerenigingenController.cs" />
+    <Compile Include="DataAccess\ApplicationVM.cs" />
     <Compile Include="DataAccess\CustomersDA.cs" />
     <Compile Include="DataAccess\EmployeesDA.cs" />
     <Compile Include="DataAccess\KassaDA.cs" />
+    <Compile Include="DataAccess\KlantDA.cs" />
     <Compile Include="DataAccess\OrganisationsDA.cs" />
     <Compile Include="DataAccess\ProductenDA.cs" />
     <Compile Include="DataAccess\RegistersManagementDA.cs" />
@@ -281,6 +284,7 @@
   <ItemGroup>
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\Employees\" />
+    <Folder Include="Views\Klant\" />
     <Folder Include="Views\NewPassword\" />
     <Folder Include="Views\OrganisationsAPI\" />
     <Folder Include="Views\Organisations\" />

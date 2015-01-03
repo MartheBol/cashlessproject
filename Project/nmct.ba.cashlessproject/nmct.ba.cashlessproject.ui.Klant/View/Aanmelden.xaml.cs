@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace nmct.ba.cashlessproject.ui.Klant.View
 {
     /// <summary>
-    /// Interaction logic for Registreren.xaml
+    /// Interaction logic for Aanmelden.xaml
     /// </summary>
-    public partial class Registreren : UserControl
+    public partial class Aanmelden : UserControl
     {
-        public Registreren()
+        public Aanmelden()
         {
             InitializeComponent();
         }

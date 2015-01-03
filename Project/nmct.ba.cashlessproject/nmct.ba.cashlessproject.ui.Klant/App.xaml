@@ -27,6 +27,14 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
         </Style>
 
+        <Style x:Key="Tekstboxen" TargetType="{x:Type TextBox}">
+            <Setter Property="FontFamily" Value="Century Gothic"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Foreground" Value="Black"/>
+            
+        </Style>
+
     </Application.Resources>
 </Application>
 

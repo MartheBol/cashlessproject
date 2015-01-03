@@ -50,11 +50,11 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
             if (!ApplicationVM.token.IsError)
             {
-                appvm.ChangePage(new KlantenVM());
+                appvm.ChangePage(new ProductenMV());
             }
             else
             {
-                Error = "Gebruikersnaam of wachtwoord kloppen niet";
+                Error = "Gebruikersnaam of wachtwoord klopt niet";
             }
         }
     }

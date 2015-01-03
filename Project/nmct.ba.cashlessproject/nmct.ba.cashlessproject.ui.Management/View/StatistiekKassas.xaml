@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             Height="350" Width="525">
+             Height="350" Width="726.778">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,6 +20,11 @@
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="34*"/>
             <ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="30*"/>
+
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -45,6 +50,10 @@
         <ComboBox Name="cboKassas" ItemsSource="{Binding Kassas}" DisplayMemberPath="RegisterName" Grid.Column="1" HorizontalAlignment="Left" Height="28.97" Grid.Row="5" Grid.RowSpan="3" VerticalAlignment="Top" Width="103.667"/>
         <Button Name="btnAfmelden" Content="Afm" Margin="0,0.01,9.045,0" Grid.ColumnSpan="2" Grid.Column="10" Grid.Row="1" Style="{StaticResource Buttons}"/>
         <Button Name="btnPaswoord" Content="Pasw" Margin="0,0.01,0,0" Grid.Column="8" Grid.Row="1" Style="{StaticResource Buttons}"/>
+        <Button x:Name="btnKassa" Style="{StaticResource Navigatie}"  Content="Kassa's" Grid.Column="14" HorizontalAlignment="Left" Height="29.334" Grid.Row="3" VerticalAlignment="Top" Width="151.74" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[2], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnKlanten" Style="{StaticResource Navigatie}" Content="Klanten" Grid.Column="14" HorizontalAlignment="Left" Grid.Row="3" Width="151" Margin="0.333,34.333,0,13.333" Grid.RowSpan="4" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[7], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnProducten"  Style="{StaticResource Navigatie}" Content="Producten" Grid.Column="14" HorizontalAlignment="Left" Height="29.334" Grid.Row="6" VerticalAlignment="Top" Width="151.74" Margin="0,8.699,0,0" Grid.RowSpan="3" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[0], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnMedewerkers" Style="{StaticResource Navigatie}" Content="Medewerkers" Grid.Column="14" HorizontalAlignment="Left" Height="29.334" Grid.Row="8" VerticalAlignment="Top" Width="151.74" Margin="0,17.955,0,0" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[1], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
     </Grid>
 
 </UserControl>

@@ -141,6 +141,31 @@ namespace nmct.ssa.cashlessproject.webapp.Helper
             }
         }
 
+        public static int InsertData(DbConnection con, string sql, params DbParameter[] parameters)
+        {
+            DbCommand command = null;
+            try
+            {
+                command = BuildCommand(con, sql, parameters);
+                command.ExecuteNonQuery();
+
+                command.Parameters.Clear();
+                command.CommandText = "SELECT @@IDENTITY";
+
+                int identity = Convert.ToInt32(command.ExecuteScalar());
+                command.Connection.Close();
+
+                return identity;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                if (command != null)
+                    ReleaseConnection(command.Connection);
+                return 0;
+            }
+        }
+
         public static int ModifyData(string ConnectionString, string sql, params DbParameter[] parameters)
         {
             DbCommand command = null;

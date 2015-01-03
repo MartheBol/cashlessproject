@@ -22,6 +22,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             Pages.Add(new StatistiekKassasVM());
             Pages.Add(new StatistiekProductenVM());
             Pages.Add(new WachtwoordWijzigenVM());
+            pages.Add(new KlantenVM());
 
             // Add other pages
 
@@ -35,6 +36,12 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { currentPage = value; OnPropertyChanged("CurrentPage"); }
         }
 
+        private int _activeUserId;
+        public int ActiveUserId
+        {
+            get { return _activeUserId; }
+            set { _activeUserId = value; OnPropertyChanged("ActiveUserId"); }
+        }
         private List<IPage> pages;
         public List<IPage> Pages
         {

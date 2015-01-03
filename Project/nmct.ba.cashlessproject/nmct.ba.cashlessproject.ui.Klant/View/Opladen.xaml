@@ -7,48 +7,37 @@
         >
 
 
-   
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="43*"/>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="34*"/>
-            <RowDefinition Height="31*"/>
-            <RowDefinition Height="16*"/>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="32*"/>
-            <RowDefinition Height="18*"/>
-            <RowDefinition Height="14*"/>
-            <RowDefinition Height="30*"/>
-            <RowDefinition Height="21*"/>
-            <RowDefinition Height="34*"/>
+
+            <RowDefinition Height="88*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="82*"/>
+
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="11*"/>
-            <ColumnDefinition Width="123*"/>
-            <ColumnDefinition Width="25*"/>
-            <ColumnDefinition Width="221*"/>
-            <ColumnDefinition Width="7*"/>
-            <ColumnDefinition Width="110*"/>
-            <ColumnDefinition Width="21*"/>
+
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="40*"/>
+
         </Grid.ColumnDefinitions>
 
-        <TextBlock Name="txbOpladen" Text="Kaart opladen" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="7"/>
+        <Image x:Name="imgCode" Grid.Row="5" Grid.RowSpan="3" Margin="0,0,1,0"/>
 
-        <TextBlock Name="txbKaartNummer" Text="Kaartnummer" FontSize="20" Height="auto" Width="auto" Grid.Column="3" Grid.Row="2"/>
-        <TextBox Name="txtKaartnummer" FontSize="20" Grid.Column="3" Grid.Row="3" />
+        <TextBlock x:Name="txbOpladen" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="4" Grid.RowSpan="8"><Run Text="Kaart opladen"/></TextBlock>
+        <TextBlock x:Name="txbBedrag" Style="{StaticResource Tekstblokken}"  Text="Toe te voegen bedrag" FontSize="20" Margin="0.667,0,0.333,0.333" Grid.Column="2" Grid.Row="1" Width="275"/>
 
-        <Button Name="btnQRcode" Content="Scan QR-code"  FontSize="16" Grid.Column="5" Grid.Row="3"/>
-        <TextBlock Name="txbBedrag" Text="Bedrag" FontSize="20"  Grid.Column="3" Grid.Row="5"/>
-        <ComboBox Name="cboBedrag"  FontSize="20" Grid.Column="3" Grid.Row="6"/>
-
-        <Button Name="btnBedragOpladen" Content="Opladen"  FontSize="20" Grid.Column="3" Grid.Row="9"/>
-        <Button Name="btnOpladen" Content="Betaalkaart opladen"  FontSize="12" Grid.Row="2" Grid.RowSpan="2" Grid.Column="1"
-                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[2], RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
-        <Button Name="btnSaldo" Content="Betaalkaart Saldo" FontSize="12" Grid.Row="5" Grid.RowSpan="2" Grid.Column="1"
-                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[3], RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
-        <Button Name="btnRegisteren" Content="Betaalkaart Registreren"  FontSize="11" Grid.Row="8" Grid.RowSpan="3" Grid.Column="1"
-                Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[4], RelativeSource={RelativeSource AncestorType={x:Type Window}}}"/>
+        <Button x:Name="btnBedragOpladen" Content="Opladen" Style="{StaticResource Buttons}"  FontSize="20" Grid.Column="2" Grid.Row="4"/>
+        <TextBox x:Name="txtBedrag" Style="{StaticResource Tekstboxen}" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Grid.Column="2" Grid.Row="2"/>
+        <TextBlock x:Name="txtHuidigSaldo" Style="{StaticResource Tekstblokken}" Foreground="white" Padding="7" Background="#e85e00" Text="Huidig Saldo: " FontSize="20" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Grid.Column="2" Grid.Row="6"/>
 
 
 

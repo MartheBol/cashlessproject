@@ -10,8 +10,15 @@
     </Window.DataContext>
     
     <Window.Resources>
-        <DataTemplate DataType="{x:Type vm:PageOneVM}">
-            <v:Page1/>
+        <DataTemplate DataType="{x:Type vm:AanmeldenVM}">
+            <v:Aanmelden/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type vm:RegisterGegevensVM}">
+            <v:RegisterGegevens/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StartSchermVM}">
+            <v:Sartscherm/>
         </DataTemplate>
 
         <DataTemplate DataType="{x:Type vm:KassasysteemVM}">
@@ -22,9 +29,7 @@
             <v:Opladen/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:RegistrerenVM}">
-            <v:Registreren/>
-        </DataTemplate>
+        
                       
          <DataTemplate DataType="{x:Type vm:SaldoVM}">
             <v:Saldo/>

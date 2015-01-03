@@ -24,14 +24,17 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         public ProductenMV()
         {
-            GetProducten();
+            if (ApplicationVM.token != null)
+            {
+                GetProducten();
+            }
         }
 
         private ObservableCollection<Products> _product;
         public ObservableCollection<Products> Product
         {
             get { return _product; }
-            set { _product = value; OnPropertyChanged("Producten"); }
+            set { _product = value; OnPropertyChanged("Product"); }
         }
         private Products _selectedProduct;
         public Products SelectedProduct
@@ -47,6 +50,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/");
                 if (response.IsSuccessStatusCode)
                 {
@@ -60,6 +64,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 HttpResponseMessage response = await client.DeleteAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id);
 
                 if (response.IsSuccessStatusCode)
@@ -76,8 +81,9 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             Products newProduct = new Products() { ProductName = "Nieuw Product" };
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string emp = JsonConvert.SerializeObject(newProduct);
-                HttpResponseMessage response = await client.PostAsync("http://localhost:1419/api/products", new StringContent(emp, Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PostAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products", new StringContent(emp, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     GetProducten();
@@ -90,6 +96,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string Employee = JsonConvert.SerializeObject(SelectedProduct);
                 HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/products/" + SelectedProduct.Id , new StringContent(Employee, Encoding.UTF8, "application/json"));
             }

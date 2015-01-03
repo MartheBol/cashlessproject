@@ -20,7 +20,7 @@ namespace nmct.ba.cashlessproject.ui.Klant.ViewModel
             ;
             // Add other pages
 
-            CurrentPage = Pages[0];
+            CurrentPage = new StartSchermVM();
         }
 
         private object currentPage;
@@ -28,6 +28,13 @@ namespace nmct.ba.cashlessproject.ui.Klant.ViewModel
         {
             get { return currentPage; }
             set { currentPage = value; OnPropertyChanged("CurrentPage"); }
+        }
+
+        private int _activeUserId;
+        public int ActiveUserId
+        {
+            get { return _activeUserId; }
+            set { _activeUserId = value; OnPropertyChanged("ActiveUserId"); }
         }
 
         private List<IPage> pages;
@@ -46,7 +53,7 @@ namespace nmct.ba.cashlessproject.ui.Klant.ViewModel
             get { return new RelayCommand<IPage>(ChangePage); }
         }
 
-        private void ChangePage(IPage page)
+        public void ChangePage(IPage page)
         {
             CurrentPage = page;
         }

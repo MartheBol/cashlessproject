@@ -1,4 +1,6 @@
-﻿using System;
+﻿using be.belgium.eid;
+using nmct.ba.cashlessproject.ui.Klant.View.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,5 +26,8 @@ namespace nmct.ba.cashlessproject.ui.Klant.View
         {
             InitializeComponent();
         }
+
     }
 }
+
+

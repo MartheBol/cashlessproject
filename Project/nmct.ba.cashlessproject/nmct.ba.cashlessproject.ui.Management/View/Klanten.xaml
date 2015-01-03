@@ -6,7 +6,7 @@
              xmlns:c="clr-namespace:nmct.ba.cashlessproject.ui.Management.Converters"
         xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.Management.ViewModel"
         mc:Ignorable="d" 
-  Height="350" Width="525">
+  Height="350" Width="726.778">
     <UserControl.DataContext>
         <vm:KlantenVM/>
     </UserControl.DataContext>
@@ -29,6 +29,10 @@
             <ColumnDefinition Width="23*"/>
 
             <ColumnDefinition Width="10*"/>
+			  <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="164*"/>
+            <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="11*"/>
@@ -47,7 +51,7 @@
             <RowDefinition Height="7*"/>
             <RowDefinition Height="15*"/>
             <RowDefinition Height="17*"/>
-            <RowDefinition Height="10.938"/>
+            <RowDefinition Height="10.938*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
 
@@ -79,6 +83,10 @@
         <TextBlock x:Name="txbFoto" Text="Foto" Style="{StaticResource Textblocken}" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="7" Margin="0.001,6.768,-18.928,0"/>
         <TextBlock x:Name="txbGeslacht" Text="Geslacht" Style="{StaticResource Textblocken}" Grid.Row="13" Grid.RowSpan="2" Grid.Column="2" Grid.ColumnSpan="5" Margin="0,3.548,62.879,0"/>
         <TextBox x:Name="txtSaldo"  Text="{Binding SelectedKlant.Balance}"  Margin="0,0,0,4.034" TextWrapping="Wrap" Grid.Column="4" Grid.Row="15" Grid.RowSpan="2"/>
+        <Button x:Name="btnKassas" Style="{StaticResource Navigatie}" Content="Kassa's" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Grid.Row="3" VerticalAlignment="Top" Width="151.74" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[2], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnMedewerkers" Style="{StaticResource Navigatie}" Content="Medewerkers" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Grid.Row="4" VerticalAlignment="Top" Width="151.74" Margin="0,2.334,0,0" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[1], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnProducten" Style="{StaticResource Navigatie}" Content="Producten" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Grid.Row="4" VerticalAlignment="Top" Width="151.74" Margin="0,36.668,0,0" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[0], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+        <Button x:Name="btnStatistieken" Style="{StaticResource Navigatie}" Content="Statistieken" Grid.Column="15" HorizontalAlignment="Left" Height="29.334" Grid.Row="4" VerticalAlignment="Top" Width="151.74" Margin="0,71.002,0,0" Grid.RowSpan="3" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding DataContext.Pages[3], RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
     </Grid>
 
 

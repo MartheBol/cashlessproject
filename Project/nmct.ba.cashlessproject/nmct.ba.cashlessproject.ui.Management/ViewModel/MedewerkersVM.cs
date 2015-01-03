@@ -23,7 +23,10 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         public MedewerkersVM()
         {
-            GetMedewerkers();
+            if (ApplicationVM.token != null)
+            {
+                GetMedewerkers();
+            }
         }
 
         private ObservableCollection<Employee> _medewerkers;
@@ -48,6 +51,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees");
                 if(response.IsSuccessStatusCode)
                 {
@@ -63,6 +67,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 HttpResponseMessage response = await client.DeleteAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees/" + SelectedMedewerker.Id);
 
                 if (response.IsSuccessStatusCode)
@@ -79,8 +84,9 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             Employee newEmployee = new Employee() {EmployeeName = "Nieuwe mederwerker"};
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string employee = JsonConvert.SerializeObject(newEmployee);
-                HttpResponseMessage response = await client.PostAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees", new StringContent(employee, Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PostAsync("http://localhost:13160/api/employees/", new StringContent(employee, Encoding.UTF8, "application/json"));
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
@@ -99,6 +105,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             using (HttpClient client = new HttpClient())
             {
+                client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string Employee = JsonConvert.SerializeObject(SelectedMedewerker);
                 HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees/" + SelectedMedewerker.Id, new StringContent(Employee, Encoding.UTF8, "application/json"));
             }

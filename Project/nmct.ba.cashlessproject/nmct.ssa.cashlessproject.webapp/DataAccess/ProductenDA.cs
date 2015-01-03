@@ -6,6 +6,8 @@ using System.Data.Common;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
+using System.Configuration;
+using nmct.ba.cashlessproject.model;
 
 namespace nmct.ssa.cashlessproject.webapp.DataAccess
 {
@@ -15,12 +17,22 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
 
             private const string CONNECTIONSTRING = "ConnectionStringKlanten";
 
-            public static List<Products> GetProducts()
+            private static ConnectionStringSettings CreateConnectionString(IEnumerable<Claim> claims)
+            {
+                string dblogin = claims.FirstOrDefault(c => c.Type == "dblogin").Value;
+                string dbpass = claims.FirstOrDefault(c => c.Type == "dbpass").Value;
+                string dbname = claims.FirstOrDefault(c => c.Type == "dbname").Value;
+
+                return Database.CreateConnectionString("System.Data.SqlClient", @"MARTHEBOLCF6F", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), dbpass);
+
+            }
+
+            public static List<Products> GetProducts(IEnumerable<Claim> claims)
             {
                 List<Products> list = new List<Products>();
 
-                string sql = "SELECT ID, ProductName, Price FROM Products";
-                DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql);
+                string sql = "SELECT ID, ProductName, Price FROM Product";
+                DbDataReader reader = Database.GetData(Database.GetConnection(CreateConnectionString(claims)), sql);
 
                 while (reader.Read())
                 {
@@ -38,17 +50,17 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
 
 
             //verwijderen van een product
-            public static void DeleteProduct(int id)
+            public static void DeleteProduct(int id, IEnumerable<Claim> claims)
             {
-                string sql = "DELETE FROM Products WHERE ID = @ID";
+                string sql = "DELETE FROM Product WHERE ID = @ID";
                 DbParameter par = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
-                Database.ModifyData(CONNECTIONSTRING, sql, par);
+                Database.ModifyData(Database.GetConnection(CreateConnectionString(claims)), sql, par);
             }
 
             //wijzigen van een product
-            public static void UpdateProduct(long id, Products prod)
+            public static void UpdateProduct(long id, Products prod, IEnumerable<Claim> claims )
             {
-                string sql = "UPDATE Products SET ProductName=@ProductName,Price=@Price WHERE ID=@ID;";
+                string sql = "UPDATE Product SET ProductName=@ProductName,Price=@Price WHERE ID=@ID;";
 
                 if (prod.ProductName == null) prod.ProductName = "";
 
@@ -56,7 +68,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
                 DbParameter parPrice = Database.AddParameter(CONNECTIONSTRING, "@Price", prod.Price);
                 DbParameter parId = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
 
-                Database.ModifyData(CONNECTIONSTRING, sql, parName, parPrice, parId);
+                Database.ModifyData(Database.GetConnection(CreateConnectionString(claims)), sql, parName, parPrice, parId);
             }
 
 
@@ -76,13 +88,13 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             }*/
 
 
-            public static int InsertProduct(Products Product)
+            public static int InsertProduct(Products Product, IEnumerable<Claim> claims)
             {
-                string sql = "INSERT INTO Products(ProductName,Price) VALUES(@ProductName,@Price)";
+                string sql = "INSERT INTO Product(ProductName,Price) VALUES(@ProductName,@Price)";
                 DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@ProductName", Product.ProductName);
                 DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Price", Product.Price);
 
-                return Database.InsertData(CONNECTIONSTRING, sql, par1, par2);
+                return Database.InsertData(Database.GetConnection(CreateConnectionString(claims)), sql, par1, par2);
 
             }
 

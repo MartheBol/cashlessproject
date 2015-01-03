@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -20,25 +21,33 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
 
         public List<Employee> Get()
         {
-            return EmployeesDA.GetEmployees();
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
+
+            return EmployeesDA.GetEmployees(p.Claims);
         }
 
         public HttpStatusCode Delete(int id)
         {
-            EmployeesDA.DeleteEmployee(id);
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
+
+            EmployeesDA.DeleteEmployee(id, p.Claims);
             return HttpStatusCode.OK;
         }
 
         public Employee Post(Employee emp)
         {
-            int id = EmployeesDA.InsertEmployee(emp);
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
+
+            int id = EmployeesDA.InsertEmployee(emp, p.Claims);
             emp.Id = id;
             return emp;
         }
 
         public HttpStatusCode Put(long id, Employee emp)
         {
-            EmployeesDA.UpdateEmployee(id, emp);
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
+
+            EmployeesDA.UpdateEmployee(id, emp, p.Claims);
             return HttpStatusCode.OK;
         }
     }
