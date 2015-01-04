@@ -13,10 +13,9 @@ namespace nmct.ba.cashlessproject.ui.Klant.ViewModel
         public ApplicationVM()
         {
             Pages.Add(new PageOneVM());
-            Pages.Add(new KassasysteemVM());
-            Pages.Add(new OpladenVM());
-            Pages.Add(new SaldoVM());
-            Pages.Add(new RegistrerenVM());
+            //Pages.Add(new OpladenVM());
+
+
             ;
             // Add other pages
 

@@ -26,22 +26,25 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
             return EmployeesDA.GetEmployees(p.Claims);
         }
 
-        public HttpStatusCode Delete(int id)
-        {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-
-            EmployeesDA.DeleteEmployee(id, p.Claims);
-            return HttpStatusCode.OK;
-        }
+     
 
         public Employee Post(Employee emp)
         {
-            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
 
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
             int id = EmployeesDA.InsertEmployee(emp, p.Claims);
             emp.Id = id;
             return emp;
         }
+
+        public HttpStatusCode Delete(int id)
+        {
+            ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
+            EmployeesDA.DeleteEmployee(id, p.Claims);
+            return HttpStatusCode.OK;
+        }
+
+    
 
         public HttpStatusCode Put(long id, Employee emp)
         {

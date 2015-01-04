@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="beid35libCS">
+      <HintPath>..\..\..\..\..\Belgium Identity Card SDK\beidlib\dotNet\bin\beid35libCS.dll</HintPath>
+    </Reference>
     <Reference Include="GalaSoft.MvvmLight">
       <HintPath>..\packages\MvvmLightLibs.5.0.2.0\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
     </Reference>
@@ -52,6 +55,7 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Extensions">
@@ -84,14 +88,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\ViewModel\ApplicationVM.cs" />
-    <Compile Include="View\ViewModel\BeginschermVM.cs" />
-    <Compile Include="View\ViewModel\BestellingVM.cs" />
-    <Compile Include="View\ViewModel\KlantenVM.cs" />
-    <Compile Include="View\ViewModel\ManagementVM.cs" />
-    <Compile Include="View\ViewModel\MedewerkersKeuzeVM.cs" />
-    <Compile Include="View\ViewModel\PageOneVM.cs" />
-    <Compile Include="View\ViewModel\ToevoegenAanBestellingVM.cs" />
+    <Compile Include="ViewModel\ApplicationVM.cs" />
+    <Compile Include="ViewModel\BeginschermVM.cs" />
+    <Compile Include="ViewModel\BestellingVM.cs" />
+    <Compile Include="ViewModel\KlantenVM.cs" />
+    <Compile Include="ViewModel\ManagementVM.cs" />
+    <Compile Include="ViewModel\MedewerkersKeuzeVM.cs" />
+    <Compile Include="ViewModel\PageOneVM.cs" />
+    <Compile Include="ViewModel\ToevoegenAanBestellingVM.cs" />
     <Compile Include="View\Beginscherm.xaml.cs">
       <DependentUpon>Beginscherm.xaml</DependentUpon>
     </Compile>
@@ -100,9 +104,6 @@
     </Compile>
     <Compile Include="View\Klant.xaml.cs">
       <DependentUpon>Klant.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ITBedrijf.xaml.cs">
-      <DependentUpon>ITBedrijf.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\MedewerkersKeuze.xaml.cs">
       <DependentUpon>MedewerkersKeuze.xaml</DependentUpon>
@@ -113,6 +114,7 @@
     <Compile Include="View\ToevoegenAanBestelling.xaml.cs">
       <DependentUpon>ToevoegenAanBestelling.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Webacces.cs" />
     <Page Include="View\Beginscherm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,10 +127,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ITBedrijf.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -137,8 +135,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\ViewModel\IPage.cs" />
-    <Compile Include="View\ViewModel\ObservableObject.cs" />
+    <Compile Include="ViewModel\IPage.cs" />
+    <Compile Include="ViewModel\ObservableObject.cs" />
     <Compile Include="View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

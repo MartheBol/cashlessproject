@@ -22,6 +22,12 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
         public HttpResponseMessage Post(Customers cus)
         {
             KlantDA.AddCustomer(cus);
+            return new HttpResponseMessage(HttpStatusCode.Created);
+        }
+
+        public HttpResponseMessage Put(Customers cus)
+        {
+            KlantDA.UpdateCustomer(cus);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
     }

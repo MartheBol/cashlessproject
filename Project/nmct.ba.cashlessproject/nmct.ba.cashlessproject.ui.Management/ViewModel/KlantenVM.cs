@@ -48,7 +48,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { _selectedKlant = value; OnPropertyChanged("SelectedKlant"); }
         }
 
-        #endregion
+        #endregion 
 
         #region METHODS
         private async void GetKlanten()
@@ -61,6 +61,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
                 {
                     string json = await response.Content.ReadAsStringAsync();
                     Klanten = JsonConvert.DeserializeObject<ObservableCollection<Customers>>(json);
+                    
 
                 }
             }
@@ -74,6 +75,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
                 client.SetBearerToken(ApplicationVM.token.AccessToken);
                 string Klant = JsonConvert.SerializeObject(SelectedKlant);
                 HttpResponseMessage response = await client.PutAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/customers/" + SelectedKlant.Id, new StringContent(Klant, Encoding.UTF8, "application/json"));
+                GetKlanten();
             }
         }
 
@@ -113,6 +115,23 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         #endregion
 
 
+        #region Afmelden
+        private void Afmelden()
+        {
+            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
+            ApplicationVM.token = null;
+
+            if (ApplicationVM.token == null)
+            {
+                appvm.ChangePage(new LoginVM());
+            }
+        }
+
+        public ICommand AfmeldenCommand
+        {
+            get { return new RelayCommand(Afmelden); }
+        }
+        #endregion
 
 
 

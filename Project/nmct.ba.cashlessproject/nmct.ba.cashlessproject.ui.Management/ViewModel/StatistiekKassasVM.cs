@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using GalaSoft.MvvmLight.CommandWpf;
+using Newtonsoft.Json;
 using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
@@ -50,6 +52,24 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
                 }
             }
         }
+
+        #region Afmelden
+        private void Afmelden()
+        {
+            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
+            ApplicationVM.token = null;
+
+            if (ApplicationVM.token == null)
+            {
+                appvm.ChangePage(new LoginVM());
+            }
+        }
+
+        public ICommand AfmeldenCommand
+        {
+            get { return new RelayCommand(Afmelden); }
+        }
+        #endregion
 
     }
 

@@ -22,7 +22,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             string dbpass = claims.FirstOrDefault(c => c.Type == "dbpass").Value;
             string dbname = claims.FirstOrDefault(c => c.Type == "dbname").Value;
 
-            return Database.CreateConnectionString("System.Data.SqlClient", @"MARTHEBOLCF6F", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), dbpass);
+            return Database.CreateConnectionString("System.Data.SqlClient", @"MARTHEBOLCF6F", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), Cryptography.Decrypt(dbpass));
 
         }
         //GET EMPLOYEES
@@ -67,12 +67,12 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
         //INSERT EMPLOYEES
         public static int InsertEmployee(Employee emp, IEnumerable<Claim> claims)
         {
-
+            string sql = "INSERT INTO Employee(EmployeeName, Address, Email, Phone) VALUES(@EmployeeName, @Address, @Email, @Phone)";
             DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@EmployeeName", emp.EmployeeName);
             DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Address", emp.Address);
             DbParameter par3 = Database.AddParameter(CONNECTIONSTRING, "@Email", emp.Email);
             DbParameter par4 = Database.AddParameter(CONNECTIONSTRING, "@Phone", emp.Phone);
-            string sql = "INSERT INTO Employee(EmployeeName, Address, Email, Phone) VALUES(@EmployeeName, @Address, @Email, @Phone)";
+
 
             return Database.InsertData(Database.GetConnection(CreateConnectionString(claims)), sql, par1, par2, par3, par4);
 
@@ -95,6 +95,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             Database.ModifyData(Database.GetConnection(CreateConnectionString(claims)), sql, par1, par2, par3, par4, par5);
 
         }
+
 
 
 

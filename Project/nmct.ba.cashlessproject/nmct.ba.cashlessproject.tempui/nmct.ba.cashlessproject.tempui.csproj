@@ -54,18 +54,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IT - Bedrijf\ITBedrijf.xaml.cs">
-      <DependentUpon>ITBedrijf.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IT - Bedrijf\Kassa%27s.xaml.cs">
-      <DependentUpon>Kassa%27s.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="IT - Bedrijf\Verenigingen.xaml.cs">
-      <DependentUpon>Verenigingen.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Kassasysteem klant\registratie.xaml.cs">
-      <DependentUpon>registratie.xaml</DependentUpon>
-    </Compile>
     <Compile Include="KassaSysteem Medewerker\Bestelling.xaml.cs">
       <DependentUpon>Bestelling.xaml</DependentUpon>
     </Compile>
@@ -99,22 +87,6 @@
     <Compile Include="Management Vereningen\VerenigingLoggin.xaml.cs">
       <DependentUpon>VerenigingLoggin.xaml</DependentUpon>
     </Compile>
-    <Page Include="IT - Bedrijf\ITBedrijf.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IT - Bedrijf\Kassa%27s.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IT - Bedrijf\Verenigingen.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Kassasysteem klant\registratie.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="KassaSysteem Medewerker\Bestelling.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

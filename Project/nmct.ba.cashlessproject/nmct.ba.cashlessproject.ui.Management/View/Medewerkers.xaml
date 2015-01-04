@@ -52,7 +52,7 @@
             <ColumnDefinition Width="164*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="btnAfmelden" Content="Pasw" Grid.Column="9" Grid.Row="1" Style="{StaticResource Buttons}"/>
+        <Button Name="btnAfmelden" Command="{Binding AfmeldenCommand}" Content="Pasw" Grid.Column="9" Grid.Row="1" Style="{StaticResource Buttons}"/>
         <TextBlock Name="txbTitel" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="14" Grid.RowSpan="3" Margin="0,0,0.333,1.252" Text="Naam Vereniging"/>
         <TextBlock Name="txbMedewerkers" Text="Medewerkers" Style="{StaticResource Textblocken}" Grid.Column="1" Margin="0,13.072,0,0" Grid.Row="2" Grid.ColumnSpan="2"/>
         <ListBox Name="lstMedewerkers" ItemsSource="{Binding Medewerkers}" DisplayMemberPath="EmployeeName" SelectedItem="{Binding SelectedMedewerker}" BorderBrush="Gray" BorderThickness="1"  Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="12" Grid.Row="3" Margin="0,0.002,0,0"/>
