@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Gebruikersnaam")]
+        [Required]
+        [StringLength(50, MinimumLength=3, ErrorMessage="De naam moet tussen de 3 en 50 tekens bevatten")]
         public string Login
         {
             get { return _login; }
@@ -35,6 +38,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
 
         [DisplayName("Wachtwoord")]
+        [Required]
         public string Password
         {
             get { return _password; }
@@ -42,6 +46,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Databasenaam")]
+        [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 tekens bevatten")]
         public string DbName
         {
             get { return _dbName; }
@@ -49,19 +55,25 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Database gebruikersnaam")]
+        [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 tekens bevatten")]
         public string DbLogin
         {
             get { return _dbLogin; }
             set { _dbLogin = value; }
         }
         [DisplayName("Database wachtwoord")]
+        [Required]
         public string DbPassword
         {
             get { return _dbPassword; }
             set { _dbPassword = value; }
         }
 
+
         [DisplayName("Naam organisatie")]
+        [Required]
+        [StringLength(100, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 100 tekens bevatten")]
         public string OrganisationName
         {
             get { return _organisationName; }
@@ -69,6 +81,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Adres")]
+        [Required]
         public string Address
         {
             get { return _address; }
@@ -76,6 +89,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Email")]
+        [Required]
         public string Email
         {
             get { return _email; }
