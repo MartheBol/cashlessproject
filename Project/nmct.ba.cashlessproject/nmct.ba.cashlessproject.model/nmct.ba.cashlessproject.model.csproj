@@ -41,8 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cryptography.cs" />
-    <Compile Include="IT-Bedrijf\ErrorLog.cs" />
-    <Compile Include="IT-Bedrijf\NewPassword.cs" />
     <Compile Include="IT-Bedrijf\Organisations.cs" />
     <Compile Include="IT-Bedrijf\Registers.cs" />
     <Compile Include="Klanten\Customers.cs" />
@@ -50,8 +48,6 @@
     <Compile Include="Klanten\Errorlog.cs" />
     <Compile Include="Klanten\Products.cs" />
     <Compile Include="Klanten\Registers.cs" />
-    <Compile Include="Klanten\Register_Employee.cs" />
-    <Compile Include="Klanten\Sales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

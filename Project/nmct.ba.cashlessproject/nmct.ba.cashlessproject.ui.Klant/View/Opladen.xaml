@@ -4,9 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
         mc:Ignorable="d"  Height="350" Width="525"
-             xmlns:vm="clr-namespace:nmct.ba.cashlessproject.ui.Klant.ViewModel"
         >
-
 
 
 
@@ -25,24 +23,21 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
-            <ColumnDefinition Width="117*"/>
-            <ColumnDefinition Width="9*"/>
-            <ColumnDefinition Width="134*"/>
-            <ColumnDefinition Width="12*"/>
-            <ColumnDefinition Width="135*"/>
-            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="92*"/>
+            <ColumnDefinition Width="40*"/>
 
         </Grid.ColumnDefinitions>
 
-        <Image x:Name="imgCode" Grid.Row="4" Grid.RowSpan="4" Margin="0,39.667,1.333,0"/>
+        <Image x:Name="imgCode" Grid.Row="5" Grid.RowSpan="3" Margin="0,0,1,0"/>
 
-        <TextBlock x:Name="txbOpladen" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="6" Grid.RowSpan="8" Margin="0,0,-0.667,0"><Run Text="Kaart opladen"/></TextBlock>
-        <TextBlock x:Name="txbBedrag"  Style="{StaticResource Tekstblokken}"  Text="Toe te voegen bedrag" FontSize="20" Margin="1,0,4.667,38.333" Grid.Column="2" Grid.Row="1" Width="275" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+        <TextBlock x:Name="txbOpladen" Style="{StaticResource PaginaTittels}" Grid.ColumnSpan="4" Grid.RowSpan="8"><Run Text="Kaart opladen"/></TextBlock>
+        <TextBlock x:Name="txbBedrag" Style="{StaticResource Tekstblokken}"  Text="Toe te voegen bedrag" FontSize="20" Margin="0.667,0,0.333,0.333" Grid.Column="2" Grid.Row="1" Width="275"/>
 
-        <Button x:Name="btnBedragOpladen" Command="{Binding OpladenCommand}" Content="Opladen" Style="{StaticResource Buttons}"  FontSize="20" Grid.Column="2" Grid.Row="6" Margin="0,0,11,0" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtBedrag" Text="{Binding Opladen}"  Style="{StaticResource Tekstboxen}" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" Margin="0,37,0,0" Grid.RowSpan="2"/>
-        <TextBlock x:Name="txtHuidigSaldo" Text="{Binding SelectedCustomer.Balance}" Style="{StaticResource Tekstblokken}" Foreground="white" Padding="7" Background="#e85e00" FontSize="20" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="281" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" Margin="0,2.667,118.333,0" Grid.RowSpan="2"/>
-        <Button x:Name="btnAnnuleren" Command="{Binding AnnulerenCommand}" Content="Annuleren" Style="{StaticResource Buttons}"  FontSize="20" Grid.Column="4" Grid.Row="6" Margin="0,0,118.333,0" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnBedragOpladen" Content="Opladen" Style="{StaticResource Buttons}"  FontSize="20" Grid.Column="2" Grid.Row="4"/>
+        <TextBox x:Name="txtBedrag" Style="{StaticResource Tekstboxen}" HorizontalAlignment="Left" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Grid.Column="2" Grid.Row="2"/>
+        <TextBlock x:Name="txtHuidigSaldo" Style="{StaticResource Tekstblokken}" Foreground="white" Padding="7" Background="#e85e00" Text="Huidig Saldo: " FontSize="20" Height="40" TextWrapping="Wrap" VerticalAlignment="Top" Width="276" Grid.Column="2" Grid.Row="6"/>
 
 
 

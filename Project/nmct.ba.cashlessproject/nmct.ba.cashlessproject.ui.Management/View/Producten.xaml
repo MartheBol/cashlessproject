@@ -42,13 +42,13 @@
             <ColumnDefinition Width="24*"/>
             <ColumnDefinition Width="10*"/>
 
-            <ColumnDefinition Width="10*"/>
+			<ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="164*"/>
             <ColumnDefinition Width="30*"/>
         </Grid.ColumnDefinitions>
-        <Button Name="btnAfmelden" Command="{Binding AfmeldenCommand}" Content="Afm" Grid.Column="11" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Buttons}" Margin="0,0.333,0.333,0.333"/>
-        <TextBlock Name="txbTitel" Text="Naam Vereniging" Style="{StaticResource PaginaTittels}"  Grid.ColumnSpan="5" Grid.RowSpan="2" Margin="0,0,0.333,0.333" Grid.Column="3"    />
+        <Button Name="btnAfmelden" Content="Afm" Grid.Column="11" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource Buttons}" Margin="0,0.333,0.333,0.333"/>
+        <TextBlock Name="txbTitel" Text="Naam Vereniging" Style="{StaticResource PaginaTittels}"  Grid.ColumnSpan="14" Grid.RowSpan="2"    />
         <TextBlock Name="txbProducten" Style="{StaticResource Textblocken}"  Grid.Column="1" Margin="0.077,1.002,0,0" Grid.Row="3" Grid.ColumnSpan="2" Text="Producten"/>
         <ListBox Name="lstProducten" ItemsSource="{Binding Product}" DisplayMemberPath="ProductNamePrice" SelectedItem="{Binding SelectedProduct}" BorderBrush="Gray" BorderThickness="1"  Grid.ColumnSpan="3" Grid.Column="1" Grid.RowSpan="9" Grid.Row="4" Margin="0,0,0,0.011"/>
 

@@ -1,5 +1,5 @@
 ﻿using GalaSoft.MvvmLight.CommandWpf;
-using nmct.ba.cashlessproject.model.IT_Bedrijf;
+using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,84 +14,142 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
     class WachtwoordWijzigenVM : ObservableObject, IPage
     {
         private static WebAccess wa = new WebAccess();
-
-        #region PROPERTIES
         public string Name
         {
-            get { return "WACHTWOORD WIJZIGEN"; }
+            get { return "wachtwoord veranderen"; }
+        }
+
+
+        private TokenResponse _token;
+
+        public TokenResponse Token
+        {
+            get { return _token; }
+            set
+            {
+                _token = value;
+                if (value != null)
+                {
+                    ConfigurationManager.AppSettings["token"] = value.AccessToken;
+                }
+                else
+                {
+                    ConfigurationManager.AppSettings["token"] = "";
+                }
+            }
+        }
+
+        private Boolean _tokenok = false;
+
+        public Boolean TokenOk
+        {
+            get { return _tokenok; }
+            set { _tokenok = value; OnPropertyChanged("TokenOk"); }
         }
 
         private string _username;
 
-        public string Username
+        public string UserName
         {
             get { return _username; }
             set { _username = value; OnPropertyChanged("UserName"); }
         }
 
-        private string _newPass;
+        private string _password;
 
-        public string NewPass
+        public string Password
         {
-            get { return _newPass; }
-            set { _newPass = value; OnPropertyChanged("NewPass"); }
+            get { return _password; }
+            set { _password = value; OnPropertyChanged("Password"); }
         }
 
-        private string _repeatNewPass;
+        private string _oldpass;
 
-        public string RepeatNewPass
+        public string OldPassword
         {
-            get { return _repeatNewPass; }
-            set { _repeatNewPass = value; OnPropertyChanged("RepeatNewPass"); }
+            get { return _oldpass; }
+            set { _oldpass = value; OnPropertyChanged("OldPassword"); }
+        }
+        private string _newpass;
+
+        public string NewPassword
+        {
+            get { return _newpass; }
+            set { _newpass = value; OnPropertyChanged("NewPassword"); }
         }
 
-        private string _error;
+        private string _passChangeMsg = "";
 
-        public string Error
+        public string PasswordChangeMessage
         {
-            get { return _error; }
-            set { _error = value; OnPropertyChanged("Error"); }
+            get { return _passChangeMsg; }
+            set { _passChangeMsg = value; OnPropertyChanged("PasswordChangeMessage"); }
         }
 
-        #endregion
+        private string _loginMsg;
 
+        public string LoginMessage
+        {
+            get { return _loginMsg; }
+            set { _loginMsg = value; OnPropertyChanged("LoginMessage"); }
+        }
+
+
+        public ICommand LoginCommand
+        {
+            get { return new RelayCommand(Login); }
+        }
+
+        private void Login()
+        {
+            Token = WebAccess.GetToken(UserName, Password);
+            if (Token.IsError)
+            {
+                TokenOk = false;
+                LoginMessage = "Verkeerde combinatie!";
+            }
+            else
+            {
+                TokenOk = true;
+                LoginMessage = "Ingelogd!";
+            }
+
+            Password = "";
+        }
+
+        /*public ICommand LogoutCommand
+        {
+            get { return new RelayCommand(Logout); }
+        }
+
+        private async void Logout()
+        {
+            Token = null;
+            TokenOk = false;
+            LoginMessage = "";
+            PasswordChangeMessage = "";
+        }
+        */
         public ICommand ChangePasswordCommand
         {
             get { return new RelayCommand(ChangePassword); }
         }
+
         private async void ChangePassword()
         {
-            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
+            var succeeded = await WebAccess.ChangePassword(Token.AccessToken, OldPassword, NewPassword);
 
-            if (ApplicationVM.token != null && !ApplicationVM.token.IsError)
+            if (succeeded)
             {
-                
-                if (Username != null && Username != "" && NewPass != null && NewPass != "" && RepeatNewPass != null && RepeatNewPass != "")
-                {
-                    NewPassword np = new NewPassword();
-                    np.Username = Username;
-                    np.NewPass = NewPass;
-                    np.RepeatNewPass = RepeatNewPass;
-
-                    if (np.NewPass == np.RepeatNewPass)
-                    {
-                        await wa.UpdatePassword(np, ApplicationVM.token.AccessToken);
-                        appvm.ChangePage(new ProductenMV());
-                    }
-                    else
-                    {
-                        Error = "De ingegeven wachtwoorden komen niet overeen";
-                    }
-                }
-                else
-                {
-                    Error = "Gelieve alle velden in te vullen!";
-                }
+                PasswordChangeMessage = "Paswoord is gewijzigd!";
             }
             else
             {
-                App.Current.MainWindow.Close();
+                PasswordChangeMessage = "Verkeerd wachtwoord!";
             }
-        }   
+
+            OldPassword = "";
+            NewPassword = "";
+        }
     }
 }

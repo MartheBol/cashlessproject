@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using nmct.ba.cashlessproject.model.IT_Bedrijf;
 using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
@@ -24,19 +23,27 @@ namespace nmct.ba.cashlessproject.ui.Management
             return client.RequestResourceOwnerPasswordAsync(username, password).Result;
         }
 
-        public async Task UpdatePassword(NewPassword np, string token)
+
+        public static async Task<bool> ChangePassword(string token, string oldPassword, string newPassword)
         {
-            var client = new System.Net.Http.HttpClient();
-            client.SetBearerToken(token);
-            string input = JsonConvert.SerializeObject(np);
-            HttpResponseMessage response = await client.PutAsync("http://localhost:13160/api/WachtwoordWijzigen", new StringContent(input, Encoding.UTF8, "application/json"));
-            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            if (oldPassword == null || newPassword == null)
+                return false;
+
+            using (HttpClient client = new HttpClient())
             {
-                //await GetCustomers();
+                client.SetBearerToken(token);
+                HttpResponseMessage response = await client.PostAsync(URL + "api/Organisation/ChangePassword?oldPassword=" + WebUtility.UrlEncode(oldPassword) + "&newPassword=" + WebUtility.UrlEncode(newPassword), null);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    return JsonConvert.DeserializeObject<bool>(json);
+                }
+                else
+                {
+                    return false;
+                }
             }
         }
-
-       
 
     }
 }

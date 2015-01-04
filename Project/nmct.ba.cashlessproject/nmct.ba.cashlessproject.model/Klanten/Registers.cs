@@ -11,9 +11,6 @@ namespace nmct.ba.cashlessproject.model.Klanten
         private int _id;
         private string _registerName;
         private string _device;
-    
-        private DateTime _from;
-        private DateTime _until;
 
         public int Id
         {
@@ -31,41 +28,6 @@ namespace nmct.ba.cashlessproject.model.Klanten
         {
             get { return _device; }
             set { _device = value; }
-        }
-
-       
-        public DateTime From
-        { 
-            get { return _from; }
-            set { value = _from; }
-        }
-
-        public DateTime Until
-        {
-            get { return _until; }
-            set { value = _until; }
-        }
-
-        private int _employeeId;
-
-        public int EmployeeId
-        {
-            get { return _employeeId; }
-            set { _employeeId = value; }
-        }
-
-
-        private string _employeeName;
-
-        public string EmployeeName
-        {
-            get { return _employeeName; }
-            set { _employeeName = value; }
-        }
-
-        public string EmployeeFromTo
-        {
-            get { return string.Format("{0} \n ({1} - {2})", EmployeeName, From, Until); }
         }
     }
 }

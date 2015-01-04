@@ -171,34 +171,22 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\ErrorLogITBedrijfController.cs" />
-    <Compile Include="Controllers\ErrorlogKlantenController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KassaController.cs" />
     <Compile Include="Controllers\KlantController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrganisationsController.cs" />
-    <Compile Include="Controllers\Product.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="Controllers\productsKlantenController.cs" />
-    <Compile Include="Controllers\RegistersController.cs" />
-    <Compile Include="Controllers\SaleController.cs" />
-    <Compile Include="Controllers\SalesController.cs" />
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Controllers\VerenigingenController.cs" />
-    <Compile Include="Controllers\WachtwoordWijzigenController.cs" />
     <Compile Include="DataAccess\ApplicationVM.cs" />
     <Compile Include="DataAccess\CustomersDA.cs" />
     <Compile Include="DataAccess\EmployeesDA.cs" />
-    <Compile Include="DataAccess\ErrorLogDA.cs" />
-    <Compile Include="DataAccess\ErrorlogKlantenDA.cs" />
     <Compile Include="DataAccess\KassaDA.cs" />
     <Compile Include="DataAccess\KlantDA.cs" />
     <Compile Include="DataAccess\OrganisationsDA.cs" />
-    <Compile Include="DataAccess\PaswoordWijzigenDA.cs" />
     <Compile Include="DataAccess\ProductenDA.cs" />
-    <Compile Include="DataAccess\ProductsKlantenDA.cs" />
     <Compile Include="DataAccess\RegistersManagementDA.cs" />
-    <Compile Include="DataAccess\SalesDA.cs" />
     <Compile Include="DataAccess\VerenigingenDA.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -292,25 +280,17 @@
     <Content Include="Views\Kassa\Create.cshtml" />
     <Content Include="Views\Kassa\Update.cshtml" />
     <Content Include="Views\Verenigingen\Create.cshtml" />
-    <Content Include="Views\ErrorLogITBedrijf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Views\CustomerBalanceDA\" />
     <Folder Include="Views\Customers\" />
     <Folder Include="Views\Employees\" />
-    <Folder Include="Views\ErrorlogKlanten\" />
     <Folder Include="Views\Klant\" />
     <Folder Include="Views\NewPassword\" />
     <Folder Include="Views\OrganisationsAPI\" />
     <Folder Include="Views\Organisations\" />
-    <Folder Include="Views\productsKlanten\" />
     <Folder Include="Views\Products\" />
     <Folder Include="Views\RegistersITBedrijf\" />
-    <Folder Include="Views\Registers\" />
     <Folder Include="Views\Register\" />
-    <Folder Include="Views\Sales\" />
-    <Folder Include="Views\Sale\" />
-    <Folder Include="Views\WachtwoordWijzigen\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

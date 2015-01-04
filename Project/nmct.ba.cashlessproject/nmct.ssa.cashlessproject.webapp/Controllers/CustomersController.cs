@@ -31,11 +31,5 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
             CustomersDA.UpdateCustomer(cus,p.Claims);
             return HttpStatusCode.OK;
         }
-
-        public Customers Get(int id)
-        {
-            // ClaimsPrincipal p = RequestContext.Principal as ClaimsPrincipal;
-            return CustomersDA.GetKlantenByID(id);
-        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using GalaSoft.MvvmLight.CommandWpf;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using nmct.ba.cashlessproject.model.Klanten;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,6 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using Thinktecture.IdentityModel.Client;
 
 namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 {
@@ -23,10 +20,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         public KassaVM()
         {
-            if (ApplicationVM.token != null)
-            {
-                GetKassas();
-            }
+            GetRegisters();
         }
 
         private ObservableCollection<Registers> _register;
@@ -43,13 +37,11 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             set { _selectedRegister = value; OnPropertyChanged("SelectedRegister"); }
         }
 
-
-        private async void GetKassas()
+        private async void GetRegisters()
         {
             using (HttpClient client = new HttpClient())
             {
-                client.SetBearerToken(ApplicationVM.token.AccessToken);
-                HttpResponseMessage response = await client.GetAsync("http://localhost:13160/api/Registers/");
+                HttpResponseMessage response = await client.GetAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/register/");
                 if (response.IsSuccessStatusCode)
                 {
                     string json = await response.Content.ReadAsStringAsync();
@@ -57,43 +49,6 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
                 }
             }
         }
-
-        #region Afmelden
-        private void Afmelden()
-        {
-            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
-            ApplicationVM.token = null;
-
-            if (ApplicationVM.token == null)
-            {
-                appvm.ChangePage(new LoginVM());
-            }
-        }
-
-        public ICommand AfmeldenCommand
-        {
-            get { return new RelayCommand(Afmelden); }
-        }
-        #endregion
-
-        public ICommand WachtwoordWijzigenCommand
-        {
-            get { return new RelayCommand(WachtwoordWijzigen); }
-        }
-        private void WachtwoordWijzigen()
-        {
-            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
-            TokenResponse token = ApplicationVM.token;
-            if (!token.IsError)
-            {
-                appvm.ChangePage(new WachtwoordWijzigenVM());
-            }
-            else
-            {
-                App.Current.MainWindow.Close();
-            }
-        }
-
 
 
     }

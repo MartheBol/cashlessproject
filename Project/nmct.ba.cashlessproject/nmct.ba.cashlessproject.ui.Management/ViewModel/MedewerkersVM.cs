@@ -68,7 +68,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             using (HttpClient client = new HttpClient())
             {
                 client.SetBearerToken(ApplicationVM.token.AccessToken);
-                HttpResponseMessage response = await client.DeleteAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees" + SelectedMedewerker.Id);
+                HttpResponseMessage response = await client.DeleteAsync(ConfigurationManager.AppSettings["apiUrl"] + "api/employees/" + SelectedMedewerker.Id);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -79,12 +79,9 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             }
         }
 
-       
-
-
         public async void AddEmployee()
         {
-            Employee newEmployee = new Employee() {EmployeeName = "Nieuwe mederwerker", Address="Nieuw", Email="nieuw@nieuw.com", Phone=1234};
+            Employee newEmployee = new Employee() {EmployeeName = "Nieuwe mederwerker"};
             using (HttpClient client = new HttpClient())
             {
                 client.SetBearerToken(ApplicationVM.token.AccessToken);
@@ -102,8 +99,8 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
                 }
             }
-        } 
-        
+        }
+
         public async void SaveEmployee()
         {
             using (HttpClient client = new HttpClient())
@@ -133,23 +130,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
 
         #endregion
 
-        #region Afmelden
-        private void Afmelden()
-        {
-            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
-            ApplicationVM.token = null;
-
-            if (ApplicationVM.token == null)
-            {
-                appvm.ChangePage(new LoginVM());
-            }
-        }
-
-        public ICommand AfmeldenCommand
-        {
-            get { return new RelayCommand(Afmelden); }
-        }
-        #endregion
+    
        
 
 
