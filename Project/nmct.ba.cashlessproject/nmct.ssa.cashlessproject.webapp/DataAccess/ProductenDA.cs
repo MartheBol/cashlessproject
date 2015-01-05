@@ -23,7 +23,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
                 string dbpass = claims.FirstOrDefault(c => c.Type == "dbpass").Value;
                 string dbname = claims.FirstOrDefault(c => c.Type == "dbname").Value;
 
-                return Database.CreateConnectionString("System.Data.SqlClient", @"MARTHEBOLCF6F", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), dbpass);
+                return Database.CreateConnectionString("System.Data.SqlClient", @"MARTHEBOLCF6F", Cryptography.Decrypt(dbname), Cryptography.Decrypt(dblogin), Cryptography.Decrypt(dbpass));
 
             }
 

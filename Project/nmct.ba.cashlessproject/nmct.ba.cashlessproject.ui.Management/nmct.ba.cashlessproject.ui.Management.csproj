@@ -126,8 +126,8 @@
     <Compile Include="View\WachtwoordVeranderen.xaml.cs">
       <DependentUpon>WachtwoordVeranderen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\WachtwoordWijzigen.xaml.cs">
-      <DependentUpon>WachtwoordWijzigen.xaml</DependentUpon>
+    <Compile Include="View\WijzigenWachtwoord.xaml.cs">
+      <DependentUpon>WijzigenWachtwoord.xaml</DependentUpon>
     </Compile>
     <Compile Include="WebAccess.cs" />
     <Page Include="View\Kassas.xaml">
@@ -180,9 +180,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\WachtwoordWijzigen.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="View\WijzigenWachtwoord.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -221,7 +221,9 @@
       <Name>nmct.ba.cashlessproject.model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\noimage.png" />
   </ItemGroup>

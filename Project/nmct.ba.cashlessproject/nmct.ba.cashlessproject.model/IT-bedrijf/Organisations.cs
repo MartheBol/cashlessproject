@@ -29,7 +29,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Gebruikersnaam")]
         [Required]
-        [StringLength(50, MinimumLength=3, ErrorMessage="De naam moet tussen de 3 en 50 tekens bevatten")]
+        [StringLength(50, MinimumLength=2, ErrorMessage="De gebruikersnaam moet tussen de 2 & 50 tekens bevatten")]
+        [RegularExpression(@"^[a-zA-Z'-']{1,50}$", ErrorMessage = "Er zijn geen speciale tekens toegelaten")]
         public string Login
         {
             get { return _login; }
@@ -39,6 +40,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Wachtwoord")]
         [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "Het passwoord moet tussen de 2 & 50 tekens bevatten")]
+
         public string Password
         {
             get { return _password; }
@@ -47,7 +50,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Databasenaam")]
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 tekens bevatten")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "De  databsenaam moet tussen de 2 & 50 tekens bevatten")]
+
         public string DbName
         {
             get { return _dbName; }
@@ -56,7 +60,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Database gebruikersnaam")]
         [Required]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 50 tekens bevatten")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "De loginnaam moet tussen de 2 & 50 tekens bevatten")]
         public string DbLogin
         {
             get { return _dbLogin; }
@@ -64,16 +68,16 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
         [DisplayName("Database wachtwoord")]
         [Required]
+        [StringLength(50, MinimumLength = 3, ErrorMessage = "De wachtwoord moet tussen de 2 & 50 tekens bevatten")]
         public string DbPassword
         {
             get { return _dbPassword; }
             set { _dbPassword = value; }
         }
 
-
         [DisplayName("Naam organisatie")]
         [Required]
-        [StringLength(100, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 100 tekens bevatten")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "De verenigingnaam moet tussen de 2 & 50 tekens bevatten")]
         public string OrganisationName
         {
             get { return _organisationName; }
@@ -82,6 +86,8 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Adres")]
         [Required]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "Het adres moet tussen de 2 & 50 tekens bevatten")]
+        [RegularExpression( @"^[a-zA-Z'-']{1,50}$", ErrorMessage="Er zijn geen speciale tekens toegelaten") ]
         public string Address
         {
             get { return _address; }
@@ -90,6 +96,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
 
         [DisplayName("Email")]
         [Required]
+        [DataType(DataType.EmailAddress)]
         public string Email
         {
             get { return _email; }
@@ -97,6 +104,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Telefoonnummer")]
+        [DataType(DataType.PhoneNumber)]
         public long Phone
         {
             get { return _phone; }

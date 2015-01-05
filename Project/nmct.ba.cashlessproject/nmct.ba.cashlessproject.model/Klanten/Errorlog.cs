@@ -8,12 +8,12 @@ namespace nmct.ba.cashlessproject.model.Klanten
 {
     public class Errorlog
     {
-        private string _registerId;
+        private int _registerId;
         private DateTime _timestamp;
         private string _message;
         private string _stackTrace;
 
-        public string RegisterId
+        public int RegisterId
         {
             get { return _registerId; }
             set { _registerId = value; }

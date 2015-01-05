@@ -1,0 +1,25 @@
+﻿@model IEnumerable<nmct.ba.cashlessproject.model.IT_Bedrijf.ErrorLog>
+
+<div class=".radio-inline">
+<h1>Error logs</h1>
+<h2 class=".col-md-4">Overzicht</h2>
+</div>
+
+
+<table class="table table-striped">
+    <tr>
+        <th class="col-md-1">Kassa ID</th>
+        <th class="col-md-1">Tijdstip</th>
+        <th class="col-md-1">Foutmelding</th>
+        <th class="col-md-1">Stacktrace</th>
+    </tr>
+    @foreach (var item in ViewBag.Errors)
+    {
+        <tr>
+            <td class="col-md-1">@item.RegisterID</td>
+            <td class="col-md-1">@item.Timestamp</td>
+            <td class="col-md-1">@item.Message</td>
+            <td class="col-md-1">@item.Stacktrace</td>
+        </tr>
+    }
+</table>

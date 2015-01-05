@@ -21,19 +21,12 @@
             <v:Sartscherm/>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type vm:KassasysteemVM}">
-            <v:Kassasysteem/>
-        </DataTemplate>
-        
         <DataTemplate DataType="{x:Type vm:OpladenVM}">
             <v:Opladen/>
         </DataTemplate>
 
         
-                      
-         <DataTemplate DataType="{x:Type vm:SaldoVM}">
-            <v:Saldo/>
-        </DataTemplate>
+         
 
 
 
@@ -49,13 +42,13 @@
    
         
  
-        <ItemsControl ItemsSource="{Binding Pages}">
+        <!--<ItemsControl ItemsSource="{Binding Pages}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Button Content="{Binding Name}" Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" CommandParameter="{Binding}"/>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ItemsControl>-->
 
         <ContentControl Grid.Row="1" Content="{Binding CurrentPage}"  Width="525" Height="350" />
     </Grid>

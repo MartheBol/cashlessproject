@@ -25,7 +25,6 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Naam kassa")]
-        [StringLength(50, MinimumLength = 3, ErrorMessage = "De naam moet tussen de 3 en 100 tekens bevatten")]
         [Required(ErrorMessage = "De naam van de kassa is verplicht in te vullen ")]
         public string RegisterName
         {
@@ -34,7 +33,6 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Merk")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "De naam moet tussen de 2 en 50 tekens bevatten")]
         [Required(ErrorMessage = "Het merk van de kassa is verplicht in te vullen ")]
         public string Device
         {
@@ -43,7 +41,6 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Aankoopdatum (dd/mm/yyyy" )]
-        
         [Required]
         [DataType(DataType.Date)]
         public DateTime PurchaseDate
@@ -62,7 +59,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         }
 
         [DisplayName("Naam organisatie")]
-        [StringLength(50, MinimumLength = 2, ErrorMessage = "De naam moet tussen de 2 en 50 tekens bevatten")]
+        [StringLength(50, MinimumLength = 2, ErrorMessage = "De verenigennaam moet tussen de 2 & 50 tekens bevatten")]
         
         public string OrganisationName
         {

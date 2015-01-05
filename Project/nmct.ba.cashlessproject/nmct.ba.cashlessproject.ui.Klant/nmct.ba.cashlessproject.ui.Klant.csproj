@@ -110,12 +110,9 @@
     </Compile>
     <Compile Include="ViewModel\AanmeldenVM.cs" />
     <Compile Include="ViewModel\ApplicationVM.cs" />
-    <Compile Include="ViewModel\KassasysteemVM.cs" />
     <Compile Include="ViewModel\OpladenVM.cs" />
     <Compile Include="ViewModel\PageOneVM.cs" />
     <Compile Include="ViewModel\RegisterGegevensVM.cs" />
-    <Compile Include="ViewModel\RegistrerenVM.cs" />
-    <Compile Include="ViewModel\SaldoVM.cs" />
     <Compile Include="ViewModel\StartSchermVM.cs" />
     <Compile Include="View\Aanmelden.xaml.cs">
       <DependentUpon>Aanmelden.xaml</DependentUpon>
@@ -133,12 +130,10 @@
     <Compile Include="View\RegisterGegevens.xaml.cs">
       <DependentUpon>RegisterGegevens.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Saldo.xaml.cs">
-      <DependentUpon>Saldo.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Sartscherm.xaml.cs">
       <DependentUpon>Sartscherm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WebAcces.cs" />
     <Page Include="RegisterGegevens.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -174,10 +169,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\RegisterGegevens.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Saldo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

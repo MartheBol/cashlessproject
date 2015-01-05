@@ -28,6 +28,16 @@ namespace nmct.ssa.cashlessproject.webapp.Helper
 
             return con;
         }
+         public static DbParameter AddParameter(ConnectionStringSettings settings, string name, object value)
+        {
+         
+            //parameter aanmaken voor dit type van provider
+            DbParameter dbPar = DbProviderFactories.GetFactory(settings.ProviderName).CreateParameter();
+            dbPar.ParameterName = name;
+            dbPar.Value = value;
+
+            return dbPar;
+        }
 
 
         public static ConnectionStringSettings CreateConnectionString(string provider, string server, string database, string username, string password)
@@ -56,7 +66,6 @@ namespace nmct.ssa.cashlessproject.webapp.Helper
                 return 0;
             }
         }
-
 
         public static void ReleaseConnection(DbConnection con)
         {
@@ -212,14 +221,15 @@ namespace nmct.ssa.cashlessproject.webapp.Helper
         }
 
 
-        public static DbParameter AddParameter(string ConnectionString, string name, object value)
+        public static DbParameter AddParameter(string constring, string name, object value)
         {
-            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[ConnectionString];
-            DbParameter par = DbProviderFactories.GetFactory(settings.ProviderName).CreateParameter();
-            par.ParameterName = name;
-            par.Value = value;
+            ConnectionStringSettings settings = ConfigurationManager.ConnectionStrings[constring];
+            //parameter aanmaken voor dit type van provider
+            DbParameter dbPar = DbProviderFactories.GetFactory(settings.ProviderName).CreateParameter();
+            dbPar.ParameterName = name;
+            dbPar.Value = value;
 
-            return par;
+            return dbPar;
         }
 
         public static DbTransaction BeginTransaction(string ConnectionString)

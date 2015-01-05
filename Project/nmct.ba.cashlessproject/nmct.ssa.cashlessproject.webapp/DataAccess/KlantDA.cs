@@ -54,6 +54,15 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
         }
 
 
+        public static int UpdateCustomer(Customers cus)
+        {
+            string sql = "UPDATE Customers SET Balance=@Balance WHERE ID =@ID";
+            DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@Balance", cus.Balance);
+            DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@ID", cus.Id);
+
+            return Database.ModifyData(CONNECTIONSTRING, sql, par1, par2);
+        }
+
       
        
 

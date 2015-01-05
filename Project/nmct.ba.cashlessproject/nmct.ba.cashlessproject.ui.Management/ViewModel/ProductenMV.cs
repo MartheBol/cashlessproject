@@ -102,6 +102,7 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
             }
         }
 
+     
         #endregion
 
         #region Commands
@@ -124,7 +125,28 @@ namespace nmct.ba.cashlessproject.ui.Management.ViewModel
         {
             get { return new RelayCommand(GetProducten); }
         }
+
+        
     #endregion
+
+        #region Afmelden
+        private void Afmelden()
+        {
+            ApplicationVM appvm = App.Current.MainWindow.DataContext as ApplicationVM;
+            ApplicationVM.token = null;
+
+            if (ApplicationVM.token == null)
+            {
+                appvm.ChangePage(new LoginVM());
+            }
+        }
+
+        public ICommand AfmeldenCommand
+        {
+            get { return new RelayCommand(Afmelden); }
+        }
+        #endregion
+
 
     }
 }

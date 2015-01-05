@@ -30,7 +30,7 @@ namespace nmct.ssa.cashlessproject.webapp.Providers
 
             var id = new ClaimsIdentity(context.Options.AuthenticationType);
             id.AddClaim(new Claim("username", context.UserName));;
-            id.AddClaim(new Claim("dbpass", context.Password));
+            id.AddClaim(new Claim("pass", context.Password));
             id.AddClaim(new Claim("dblogin",o.DbLogin));
             id.AddClaim(new Claim("dbpass", o.DbPassword));
             id.AddClaim(new Claim("dbname", o.DbName));
