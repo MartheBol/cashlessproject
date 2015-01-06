@@ -61,15 +61,17 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
         //CUSTOMER WIJZIGEN
         public static void UpdateCustomer(Customers c, IEnumerable<Claim> claims)
         {
-            string sql = "UPDATE Customer SET CustomerName=@CustomerName,Address=@Address, Balance=@Balance, Picture=@Picture WHERE ID=@ID;";
-            DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@CustomerName", c.CustomerName);
-            DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Address", c.Address);
-            DbParameter par3 = Database.AddParameter(CONNECTIONSTRING, "@Picture", c.Picture);
-            DbParameter par4 = Database.AddParameter(CONNECTIONSTRING, "@Balance", c.Balance);
-            DbParameter par5 = Database.AddParameter(CONNECTIONSTRING, "@ID", c.Id);
-         
+            
+                string sql = "UPDATE Customer SET CustomerName=@CustomerName,Address=@Address, Balance=@Balance, Picture=@Picture WHERE ID=@ID;";
+                DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@CustomerName", c.CustomerName);
+                DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@Address", c.Address);
+                DbParameter par3 = Database.AddParameter(CONNECTIONSTRING, "@Picture", c.Picture);
+                DbParameter par4 = Database.AddParameter(CONNECTIONSTRING, "@Balance", c.Balance);
+                DbParameter par5 = Database.AddParameter(CONNECTIONSTRING, "@ID", c.Id);
 
-            Database.ModifyData(Database.GetConnection(CreateConnectionString(claims)), sql, par1, par2, par3, par4, par5);
+
+                Database.ModifyData(Database.GetConnection(CreateConnectionString(claims)), sql, par1, par2, par3, par4, par5);
+            
         }
 
 

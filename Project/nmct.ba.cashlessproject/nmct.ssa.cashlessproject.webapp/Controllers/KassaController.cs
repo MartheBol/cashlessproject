@@ -3,6 +3,8 @@ using nmct.ssa.cashlessproject.webapp.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 
@@ -89,8 +91,10 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
         {
             if(ModelState.IsValid)
             {
-                KassaDA.InsertRegister(reg);
-                return RedirectToAction("Index");
+               
+                    KassaDA.InsertRegister(reg);
+                    return RedirectToAction("Index");
+                
             }
 
             else
@@ -102,38 +106,49 @@ namespace nmct.ssa.cashlessproject.webapp.Controllers
         [HttpGet]
         public ActionResult Update(int id)
         {
-            Registers reg = KassaDA.GetRegisterByID(id);
-            ViewBag.Register = reg.RegisterName;
+            
+                Registers reg = KassaDA.GetRegisterByID(id);
+                ViewBag.Register = reg.RegisterName;
 
-            //Vervaldatum & aankoopdatum van de kassa ophalen
-            reg.PurchaseDate = KassaDA.GetPurchaseDate(id);
-            reg.ExpiresDate = KassaDA.GetExpiresDate(id);
-            //reg.RegisterName = KassaDA.GetRegisterName(id);
+                //Vervaldatum & aankoopdatum van de kassa ophalen
+                reg.PurchaseDate = KassaDA.GetPurchaseDate(id);
+                reg.ExpiresDate = KassaDA.GetExpiresDate(id);
+                //reg.RegisterName = KassaDA.GetRegisterName(id);
 
 
-            ViewBag.PuchaseDate = reg.PurchaseDate;
-            ViewBag.ExpiresDate = reg.ExpiresDate;
-            ViewBag.RegisterName = reg.RegisterName;
+                ViewBag.PuchaseDate = reg.PurchaseDate;
+                ViewBag.ExpiresDate = reg.ExpiresDate;
+                ViewBag.RegisterName = reg.RegisterName;
 
-            int orgId = KassaDA.GetOrIDFromRegisterID(id);
+                int orgId = KassaDA.GetOrIDFromRegisterID(id);
 
-            if(orgId != 0)
-            {
-                Organisations organisation = VerenigingenDA.GetOrganisationByID(orgId);
-                reg.OrganisationName = organisation.OrganisationName;
-                ViewBag.Organisatie = reg.OrganisationName;
-            }
+                if (orgId != 0)
+                {
+                    Organisations organisation = VerenigingenDA.GetOrganisationByID(orgId);
+                    reg.OrganisationName = organisation.OrganisationName;
+                    ViewBag.Organisatie = reg.OrganisationName;
+                }
 
-            else
-            {
-                ViewBag.Organisatie = "Geen vereniging";
-            }
+                else
+                {
+                    ViewBag.Organisatie = "Geen vereniging";
+                }
 
-            ViewBag.Organisaties = VerenigingenDA.GetOrganisations();
+                ViewBag.Organisaties = VerenigingenDA.GetOrganisations();
 
-            return View();
+                return View();
+            
+
+           
+
+        }
+    
+
+            
+
+
+           
         }
 
         
         }
-}
