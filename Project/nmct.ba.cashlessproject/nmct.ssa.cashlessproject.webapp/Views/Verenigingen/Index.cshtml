@@ -41,7 +41,7 @@
         <th></th>
     </tr>
 
-@foreach (nmct.ba.cashlessproject.model.IT_Bedrijf.Organisations item in ViewBag.Vers) {
+@foreach (nmct.ba.cashlessproject.model.IT_Bedrijf.Organisations item in ViewBag.Ver) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Login)
@@ -72,8 +72,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Details", "Details", new { id=item.Id })
         </td>
     </tr>
 }

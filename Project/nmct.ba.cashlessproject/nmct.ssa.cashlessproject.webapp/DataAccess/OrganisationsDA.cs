@@ -17,6 +17,8 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
     public class OrganisationsDA
     {
         private const string CONNECTIONSTRING = "Admin";
+
+        #region INDEX VIEW
         public static List<Organisations> GetOrganistations()
         {
             List<Organisations> list = new List<Organisations>();
@@ -33,8 +35,6 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             return list;
 
         }
-
-        #region Creeëren database & Organisatie toevoegen
 
         private static Organisations Create(IDataRecord record)
         {
@@ -54,6 +54,8 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             };
         }
 
+        #endregion
+
         public static int InsertOrganisations(Organisations organisation)
         {
             string sql = "INSERT INTO Organisations(Login, Password, DbName, DbLogin, DbPassword, OrganisationName, Address, Email, Phone) VALUES(@Login, @Password, @DbName, @DbLogin, @DbPassword, @OrganisationName, @Address, @Email, @Phone)";
@@ -67,14 +69,13 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             DbParameter par7 = Database.AddParameter(CONNECTIONSTRING, "@Address", organisation.Address);
             DbParameter par8 = Database.AddParameter(CONNECTIONSTRING, "@Email", organisation.Email);
             DbParameter par9 = Database.AddParameter(CONNECTIONSTRING, "@Phone", organisation.Phone);
-            int id =  Database.InsertData(CONNECTIONSTRING, sql, par1, par2, par3, par4, par5, par6, par7, par8, par9);
+            int rowsaffectet =  Database.InsertData(CONNECTIONSTRING, sql, par1, par2, par3, par4, par5, par6, par7, par8, par9);
             
             CreateDatabase(organisation);
 
-            return id;
+            return rowsaffectet;
               
         }
-
 
         private static void CreateDatabase(Organisations o)
         {
@@ -117,10 +118,6 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             return commandTexts;
         }
 
-        #endregion
-
-
-
         public static void Update(Organisations org)
         {
             string sql = "UPDATE Organisations SET Login=@Login, Password=@Password, DbName=@DbName, DbLogin=@DbLogin, DbPassword=@DbPassword, OrganisationName=@OrganisationName, Address=@Address, Email=@Email, Phone=@Phone WHERE ID=@ID";
@@ -140,6 +137,7 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             
         }
 
+        #region Edit & Details
         public static Organisations GetById(int id)
         {
             string sql = "SELECT * FROM Organisations WHERE ID=@ID";
@@ -159,59 +157,42 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             return res;
 
         }
+        #endregion
 
 
-        #region Paswoord wijzigen
-        public static void ChangePassword(int id, string newPassword)
+        public static int GetById(string OrganisationName)
         {
-            string sql = "UPDATE Organisations SET Password=@Password WHERE ID=@ID";
+            int id = 0;
+            string sql = "SELECT * FROM Organisations WHERE OrganisationName = @OrganisationName" ;
 
-            DbParameter par1 = Database.AddParameter(CONNECTIONSTRING, "@Password", Cryptography.Encrypt(newPassword));
-            DbParameter par2 = Database.AddParameter(CONNECTIONSTRING, "@ID", id);
-
-            Database.ModifyData(CONNECTIONSTRING, sql, par1, par2);
-        }
-
-        public static Organisations GetByUser(string name)
-        {
-            string sql = "SELECT * FROM Organisations WHERE Login=@Login";
-
-            DbParameter parLogin = Database.AddParameter(CONNECTIONSTRING, "@Login", name);
+            DbParameter parLogin = Database.AddParameter(CONNECTIONSTRING, "@OrganisationName", OrganisationName);
 
             DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql, parLogin);
 
-            Organisations res;
+            while (reader.Read())
+            {
+                Organisations org = new  Organisations()
+                {
+                    Id = Int32.Parse(reader["ID"].ToString()),
+                    Login = Cryptography.Decrypt(reader["Login"].ToString()),
+                    Password = Cryptography.Decrypt(reader["Password"].ToString()),
+                    DbName = Cryptography.Decrypt(reader["DbName"].ToString()),
+                    DbLogin = Cryptography.Decrypt(reader["DbLogin"].ToString()),
+                    DbPassword = Cryptography.Decrypt(reader["DbPassword"].ToString()),
+                    OrganisationName = reader["OrganisationName"].ToString(),
+                    Address = reader["Address"].ToString(),
+                    Email = reader["Email"].ToString(),
+                    Phone = Int32.Parse(reader["Phone"].ToString())
 
-            if (!reader.Read())
-                res = null;
-            else
-                res = Create(reader);
+                };
 
-            reader.Close();
-            return res;
+                id = org.Id;
 
+            }
+
+            return id;
+
+         
         }
-
-        public static Organisations TryLogin(string username, string password)
-        {
-            string sql = "SELECT * FROM Organisations WHERE Login=@Login AND Password=@Password";
-
-            DbParameter parUser = Database.AddParameter(CONNECTIONSTRING, "@Login", username);
-            DbParameter parPass = Database.AddParameter(CONNECTIONSTRING, "@Password", Cryptography.Encrypt(password));
-
-            DbDataReader reader = Database.GetData(CONNECTIONSTRING, sql, parUser, parPass);
-
-            Organisations res;
-
-            if (!reader.Read())
-                res = null;
-            else
-                res = Create(reader);
-
-            reader.Close();
-            return res;
-        }
-
-        #endregion
     }
 }

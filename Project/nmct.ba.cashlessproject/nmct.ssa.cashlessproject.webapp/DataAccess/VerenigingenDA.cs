@@ -68,8 +68,6 @@ namespace nmct.ssa.cashlessproject.webapp.DataAccess
             };
         }
 
-        
-
         public static List<Organisations> GetOrganisations()
         {
             List<Organisations> lijst = new List<Organisations>();

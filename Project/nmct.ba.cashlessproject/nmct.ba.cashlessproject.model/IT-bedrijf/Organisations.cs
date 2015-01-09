@@ -30,7 +30,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         [DisplayName("Gebruikersnaam")]
         [Required]
         [StringLength(50, MinimumLength=2, ErrorMessage="De gebruikersnaam moet tussen de 2 & 50 tekens bevatten")]
-        [RegularExpression(@"^[a-zA-Z'-']{1,50}$", ErrorMessage = "Er zijn geen speciale tekens toegelaten")]
+        [RegularExpression(@"^[a-zA-Z'-' ''-']{1,50}$", ErrorMessage = "Er zijn geen speciale tekens toegelaten")]
         public string Login
         {
             get { return _login; }
@@ -87,7 +87,7 @@ namespace nmct.ba.cashlessproject.model.IT_Bedrijf
         [DisplayName("Adres")]
         [Required]
         [StringLength(50, MinimumLength = 2, ErrorMessage = "Het adres moet tussen de 2 & 50 tekens bevatten")]
-        [RegularExpression( @"^[a-zA-Z'-']{1,50}$", ErrorMessage="Er zijn geen speciale tekens toegelaten") ]
+       
         public string Address
         {
             get { return _address; }
